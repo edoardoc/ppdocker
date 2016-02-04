@@ -21,7 +21,8 @@
 
   <Set name="virtualHosts">
     <Array type="String">
-      	        <Item>ppappsrv02.inroma.roma.it</Item>
+      	<Item>ppappsrv03.inroma.roma.it</Item>
+        <Item>ppappsrv02.inroma.roma.it</Item>
 	<Item>data.portaportese.it</Item>
     </Array>
   </Set>
