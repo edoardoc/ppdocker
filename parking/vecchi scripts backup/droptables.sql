@@ -1,0 +1,11 @@
+DROP TABLE annuncio CASCADE;
+DROP TABLE annuncio400 CASCADE;
+DROP TABLE bloccoip;
+DROP TABLE esportazione;
+DROP TABLE formato;
+DROP TABLE modello;
+DROP TABLE movimento;
+DROP TABLE rubrica;
+DROP TABLE tipoauto;
+DROP TABLE uscita;
+DROP TABLE utente;

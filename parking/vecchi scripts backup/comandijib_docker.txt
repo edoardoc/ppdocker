@@ -1,0 +1,968 @@
+ ~ grep docker .bash_history
+brew search docker
+brew install boot2docker
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.boot2docker.plist
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.boot2docker.plist
+brew search docker
+brew install docker
+docker --version
+docker list
+docker --help
+docker ps
+sudo docker ps
+brew install boot2docker
+boot2docker init
+boot2docker init
+boot2docker init
+boot2docker init
+boot2docker up
+sudo docker info
+docker run -i -t centos /bin/bash
+$(boot2docker shellinit 2> /dev/null)
+sudo docker info
+$(boot2docker shellinit 2> /dev/null)
+docker run -i -t centos /bin/bash
+docker info
+docker info
+boot2docker up
+docker info
+docker run hello-world
+boot2docker
+boot2docker status
+boot2docker stop
+boot2docker start
+docker status
+docker --help
+docker info
+boot2docker shellinit
+ eval "$(boot2docker shellinit)"
+docker run hello-world
+boot2docker stop
+boot2docker start
+docker help
+docker ps
+docker search centos
+docker search jrun
+docker search jetty
+docker search centos
+docker --help
+docker --help
+docker search centos
+docker pull centos
+docker images
+docker pull centos:5.11
+docker images
+docker run -i -t ubuntu /bin/bash
+docker run -i -t centos:5.11 /bin/bash
+docker ps
+docker run -i -t centos:5.11 /bin/bash
+docker run -i -t centos:5.11 /bin/bash
+docker commit -m "added apache and rome timezone" -a "Edoardo Ceccarelli" 91aa9f303ec8 eddy/centos:5.11-mine
+docker images
+docker run -ti eddy/centos /bin/bash
+docker run -ti eddy/centos:5.11-mine /bin/bash
+docker ps
+docker ps
+docker status
+docker --help
+docker ps
+boot2docker init
+boot2docker
+boot2docker status
+boot2docker start
+ eval "$(boot2docker shellinit)"
+docker ps
+docker list
+docker ps
+docker run -i -t centos:latest /bin/bash
+docker run -i -t centos:latest /bin/bash
+docker run -i -t centos-node
+docker run -i -t -v centos-node -v ~/Downloads:/mnt
+docker run -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2368:2000 -i -t -v centos-node -v ~/Downloads:/mnt
+docker run -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2368:2000 -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2368:2000 -i -t -v ~/Downloads:/mnt e4e7d851aa99fd27b287d87a6f94eb2e72d1539c332260cd540290c0f444ac74
+docker run -p 127.0.0.1:2368:2000 -i -t -v ~/Downloads:/mnt centos-node
+docker ps
+ eval "$(boot2docker shellinit)"
+docker ps
+docker images
+docker ps
+docker images
+docker commit fd80edfca6e9 centos-node
+docker images
+docker images
+docker ps
+docker inspect 14443700c9c3
+docker commit 14443700c9c3
+docker ps
+docker commit d1a5da99f07b
+docker commit d1a5da99f07b centos-node
+ eval "$(boot2docker shellinit)"
+boot2docker status
+boot2docker stop
+boot2docker start
+docker images
+docker run -p 127.0.0.1:2368:2000 -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2000:2368 -i -t -v ~/Downloads:/mnt centos-node
+docker run -i -t -v ~/Downloads:/mnt centos-node
+docker run -P -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2368:: -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2368:2368: -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2000:2368: -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2368:2368 -i -t -v ~/Downloads:/mnt centos-node
+docker run -p 127.0.0.1:2368:2368 -i -t -v ~/Downloads:/mnt centos-node
+sudo docker run -p 127.0.0.1:2368:2368 -i -t -v ~/Downloads:/mnt centos-node
+sudo  eval "$(boot2docker shellinit)"
+sudo docker run -p 127.0.0.1:2368:2368 -i -t -v ~/Downloads:/mnt centos-node
+boot2docker --version
+boot2docker version
+boot2docker shellinit
+eval "$(boot2docker shellinit)"
+docker run centos-node
+docker ps
+docker ps
+docker run -p 127.0.0.1:2368:2368 -i -t -v ~/Downloads:/mnt centos-node
+docker run -d -P --name web nginx
+docker ps
+docker ps
+docker run -d -P --name web nginx
+boot2docker status
+boot2docker stop
+docker
+docker ps
+ eval "$(boot2docker shellinit)"
+docker ps
+docker port centos-node
+docker port nostalgic_engelbart
+docker port nostalgic_engelbart 2368
+docker port nostalgic_engelbart 2368
+docker port nostalgic_engelbart
+docker port nostalgic_engelbart
+docker port nostalgic_engelbart
+docker ps
+docker port drunk_wilson
+docker ps
+docker port stupefied_cori
+docker port stupefied_cori
+docker port stupefied_cori
+docker ps
+docker port dreamy_archimedes
+docker ps
+docker commit 36ff61046169 centos-node
+docker ps
+docker inspet loving_kowalevski
+docker inspet
+docker inspet c77c08c4fb60
+docker inspect loving_kowalevski
+docker inspect loving_kowalevski
+docker ps
+docker inspect loving_kowalevski
+docker inspect loving_kowalevski | grep ip
+docker inspect loving_kowalevski | grep Ip
+docker inspect loving_kowalevski | grep address
+docker inspect loving_kowalevski | grep ddress
+docker inspect -format '{{ .NetworkSettings.IPAddress }}' loving_kowalevski
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' loving_kowalevski
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' loving_kowalevski
+boot2docker ip
+docker port web
+docker
+docker status
+docker ps
+ eval "$(boot2docker shellinit)"
+docker ps
+docker ps
+docker port myghost
+docker port myghost
+docker ps
+docker ps
+docker ps
+docker ps
+docker ps
+docker ps
+boot2docker ip
+docker port myghost
+docker port myghost
+docker port myghost
+docker port myghost
+docker port myghost
+boot2docker status
+boot2docker init
+boot2docker start
+eval "$(boot2docker shellinit)"
+boot2docker statu
+boot2docker status
+docker version
+docker run -d -P --name web nginx
+docker ps
+docker port web
+boot2docker ip
+docker stop web
+docker run -i -t -v ~/Downloads:/mnt centos-node
+docker run -i -t -v ~/Downloads:/mnt --name myghost centos-node
+docker run -i -P --name web nginx
+docker run -i -P --name webi nginx
+docker run -i -t -P -v ~/Downloads:/mnt --name myghost centos-node
+docker ps
+docker rm myghost
+docker run -i -t -P -v ~/Downloads:/mnt --name myghost centos-node
+docker run -i -t -P -v --name mynginx nginx
+docker run -i -t -P --name mynginx nginx
+docker run -i -t -P --name myghost centos-node
+docker rm myghost
+docker run -i -t -P --name myghost centos-node
+docker run -i -t -P --name myghost centos-node
+docker rm myghost
+docker run -i -t -P --name myghost centos-node
+docker run -i -t -P --name myghost centos:latest
+docker rm myghost
+docker run -i -t -P --name myghost centos:latest
+docker pull centos:latest
+docker pull centos:latest
+boot2docker status
+boot2docker poweroff
+boot2docker status
+boot2docker start
+boot2docker status
+docker pull centos:latest
+docker pull debian:latest
+docker run -i -t -P --name myghost debian:latest
+docker run -i -t -P --name test1 debian:latest
+docker run -i -t -P --name test2 fedora:latest
+docker run -i -t -P --name test2 fedora:latest
+boot2docker status
+docker run -i -t -P --name test2 fedora:latest
+docker run -i -t -P --name test3 slackware:latest
+docker run -i -t -P --name test2 fedora:latest
+docker run -i -t -P --name test4 fedora:latest
+docker run -i -t -P --name test4 hello-world
+docker status
+docker ps
+ eval "$(boot2docker shellinit)"
+docker ps
+docker port test1
+ eval "$(boot2docker shellinit)"
+boot2docker up
+ eval "$(boot2docker shellinit)"
+docker ps -a
+docker -iP run debian:latest
+docker -i -P run debian:latest
+docker run debian:latest -name serve
+docker run debian:latest --name serve
+docker -name serve run debian:latest
+docker -name serve debian:latest
+docker run -i -t debian:latest --name serve
+docker run -i -t debian:latest
+docker commit c3984996245e myapache
+docker run -i -t myapache
+docker run -i -t myusr/sbin/apache2ctl -D FOREGROUND
+docker run -p 80:80 -i -t myapache /usr/sbin/apache2ctl -D FOREGROUND
+docker run -i -t mycentos:5.11-mine
+docker run -i -t centos:5.11-mine
+docker run -i -t eddy/centos:5.11-mine
+docker run -i -t eddy/centos
+docker run -i -t centos-node
+docker run -i -t centos-node /go.sh
+docker run -i -t centos-node sh /go.sh
+docker -p 2368:2368 run -i -t centos-node sh /go.sh
+docker run -p 2368:2368 -i -t centos-node sh /go.sh
+docker run -i -t centos-node
+docker run -i -t centos-node
+docker run -i -t eddy/centos:5.11-mine
+docker run -i -t eddy/centos:5.11-mine -v ~/Downloads:/mnt
+docker run -i -t -v ~/Downloads:/mnt eddy/centos:5.11-mine
+docker run -i -t -v ~/Downloads:/mnt eddy/centos:5.11-mine
+docker run -i -t -v ~/Downloads:/mnt eddy/centos:5.11-mine
+docker run -i -t -v ~/Downloads:/mnt eddy/centos:5.11-mine
+boot2docker status
+boot2docker help
+boot2docker restart
+docker run -i -t -v ~/Downloads:/mnt eddy/centos:5.11-mine
+docker run -i -t -v ~/Downloads:/mnt eddy/centos:5.11-mine
+docker commit 77aab985dac3 pp5
+docker run -i -t -v ~/Downloads:/mnt pp5
+docker run -i -t -v ~/Downloads:/mnt pp5
+boot2docker restart
+docker run -i -t -v ~/Downloads:/mnt pp5
+tar jxf ~/box/LAVORI/PORTAPORTESE/SEEDS/pstart.tar.bz2 -c . | docker import - portaportese/pp1
+tar jf ~/box/LAVORI/PORTAPORTESE/SEEDS/pstart.tar.bz2 -c . | docker import - portaportese/pp1
+docker ps
+ eval "$(boot2docker shellinit)"
+docker ps
+docker inspect sharp_morse
+boot2docker ip
+docker ps -a
+docker ps -a
+boot2docker up
+ eval "$(boot2docker shellinit)"
+docker ps -a
+docker ps -y
+docker ps -i
+docker ps -a
+docker ps -a
+cat pstart.tar | docker import - pstart
+docker run -i -t pstart cat /etc/redhat-release
+docker run -it
+docker run -i -t -v ~/Downloads:/mnt pstart
+docker run -i -t -v ~/Downloads:/mnt pstart /bin/bash
+docker ps -a
+docker commit 2fc9bf848c5c pstart
+docker run -i -t -v ~/Downloads:/mnt pstart /root/pplaunch
+docker run -i -t -v ~/Downloads:/mnt pstart su /root/pplaunch
+docker run -i -t -v ~/Downloads:/mnt pstart /bin/bash
+docker run -i -t -v ~/Downloads:/mnt pstart sh /root/pplaunch
+docker run -p 80:80 -i -t -v ~/Downloads:/mnt pstart sh /root/pplaunch
+docker images
+docker run -i -t -v ~/Downloads:/mnt pstart /bin/bash
+docker run -i -t -v pstart /bin/bash
+docker run -i -t pstart /bin/bash
+docker images
+docker push portaportese/ppstart
+docker help
+docker push --help
+docker images
+docker commit -m "Added json gem" -a "Kate Smith" ouruser/sinatra:v2
+docker commit -m "rinomino" -a "Edoardo Ceccarelli" 0f512a57bb58 portaportese/ppstart:v1.1
+docker ps
+docker run -i -t pstart /bin/bash
+docker ps
+docker ps -a
+docker commit -m "rinomino" -a "Edoardo Ceccarelli" bf885e4f7115 portaportese/ppstart:v1.1
+docker images
+docker push portaportese/ppstart
+docker push portaportese/ppstart
+docker push portaportese/ppstart
+docker push --help
+docker push portaportese/ppstart
+docker push portaportese/ppstart
+docker ps
+boot2docker status
+boot2docker restart
+docker push portaportese/ppstart
+boot2docker status
+docker push portaportese/ppstart
+boot2docker stop
+boot2docker up
+ eval "$(boot2docker shellinit)"
+docker push portaportese/ppstart
+docker --version
+cat .dockercfg
+mkdir docker-portaportese-amazon-aws
+cd docker-portaportese-amazon-aws/
+cp ../.dockercfg dockercfg
+docker login
+boot2docker stop
+boot2docker start
+ eval "$(boot2docker shellinit)"
+docker login
+cat /Users/eddy/.dockercfg
+cd docker-portaportese-amazon-aws/
+cat dockercfg
+docker ps
+boot2docker up
+ eval "$(boot2docker shellinit)"
+docker ps
+docker images
+grep docker .bash_history
+docker
+docker list
+docker images
+boot2docker init
+docker images
+sudo boot2docker init
+docker images
+sudo docker images
+docker ps
+boot2docker start
+docker ps
+sudo docker images
+ eval "$(boot2docker shellinit)"
+sudo docker images
+docker ps
+sudo eval "$(boot2docker shellinit)"
+eval "$(boot2docker shellinit)"
+docker images
+docker images
+man docker
+docker --help
+boot2docker ssh
+boot2docker ip
+boot2docker status
+boot2docker ip
+boot2docker ssh
+docker images
+boot2docker help
+boot2docker stop
+boot2docker destroy
+boot2docker init
+boot2docker up
+docker version
+boot2docker stop
+boot2docker destroy
+boot2docker stop
+boot2docker destroy
+eval "$(boot2docker shellinit)"
+docker ps
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' f4037b09ded2
+boot2docker ip
+docker ps
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' 3c95e5ed0deb
+boot2docker ip
+docker ps
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' ad1684a0386d
+boot2docker ip
+boot2docker ip
+docker ps
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' 66d00f7ac17d
+docker ps
+docker stop f4c8f1428663
+docker ps
+docker stop edf7c3ccb736
+docker ps
+docker ps
+docker ps
+boot2docker init
+boot2docker up
+eval "$(boot2docker shellinit)"
+docker version
+boot2docker stop
+boot2docker destroy
+brew uninstall docker
+brew uninstall --force docker
+brew install docker
+brew uninstall --force docker
+boot2docker download
+boot2docker init
+boot2docker up
+docker version
+brew install docker
+docker version
+docker ps
+docker images
+docker pull portaportese/ppstart
+docker pull portaportese/ppstart:v1.1
+docker run -p 127.0.0.1:80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart
+docker run -p 127.0.0.1:80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1
+docker run -p 127.0.0.1:80:8020 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1
+docker run -p 127.0.0.1:80:8020 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1  /usr/sbin/apache2ctl -D FOREGROUND
+docker run -p 127.0.0.1:80:8020 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1  /root/pplaunch -D FOREGROUND
+docker run -p 127.0.0.1:80:8020 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch -D FOREGROUND
+docker run -p 127.0.0.1:80:8080 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch -D FOREGROUND
+docker run -p 127.0.0.1:80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch -D FOREGROUND
+docker run -p 127.0.0.1:80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 8080:8080 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker pull nginx
+sudo docker run -p 80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p80:80 nginx
+docker run -p 80:80 nginx
+docker run -p 80:80 nginx
+docker run -p 80:80 nginx
+docker run -p 80:80 -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -i -p 80:80 nginx
+docker run -i -p 80:80 nginx
+docker run -i -t -p 80:80 nginx
+docker run -p 80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 /bin/bash
+docker run -p 80:80 -i -t -v /.:/mnt portaportese/ppstart:v1.1 source /etc/profile
+docker run -p 80:80 -i -t -v /.:/mnt portaportese/ppstart:v1.1 sh /etc/profile
+docker ps
+docker run -p 80:80 -i -t -v ~/Downloads:/mnt portaportese/ppstart:v1.1 /bin/bash
+docker run -p 80:80 -i -t -v ~/ppweb :/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 /bin/bash
+docker run -p 80:80 -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 /bin/bash
+docker run -p 80:80 -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 /root/pplaunch
+docker run -p 80:80 -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+eval "$(boot2docker shellinit)"
+docker ps
+docker  pull postgres:8.4.9
+docker pull postgres:8.4.11
+docker pull postgres:9.3
+docker run postgres
+docker run postgres:9.3
+docker ps
+docker ps
+docker ps
+docker rm edcbacd6178f
+docker stop edcbacd6178f
+boot2docker ip
+boot2docker ip
+eval "$(boot2docker shellinit)"
+boot2docker ip
+docker ps
+eval "$(boot2docker shellinit)"
+docker ps
+docker images
+docker rm nginx
+docker run -p 5432:5432 -i postgres:9.3
+docker run -p 5432:5430 -i postgres:9.3
+docker run -p 5432:5430 -i postgres:9.3 -e POSTGRES_PASSWORD=ciccio
+docker run -p 5432:5430 -i -e POSTGRES_PASSWORD=ciccio postgres:9.3
+docker run -p 5432:5430 -i postgres:9.3 /bin/bash
+docker run -p 5432:5430 -i -t postgres:9.3 /bin/bash
+docker run -p 5432:5430 -i -e POSTGRES_PASSWORD=ciccio postgres:9.3
+docker run -p 5432:5430 -i -e ENCODING=us_ascii, POSTGRES_PASSWORD=ciccio postgres:9.3
+docker run -p 5432:5430 -i -e ENCODING=us_ascii,POSTGRES_PASSWORD=ciccio postgres:9.3
+docker run -p 5432:5430 -i -t postgres:9.3
+docker run -p 5432:5430 -i -t postgres:9.3 /bin/bash
+cd docker-portaportese-amazon-aws/
+mkdir pp-postgres-docker
+cd pp-postgres-docker/
+docker build -t pp-db-gestionale
+docker build . -t portaportese/pp-db-gestionale
+docker build -t portaportese/pp-db-gestionale .
+docker build -t portaportese/pp-db-gestionale .
+docker build -t portaportese/pp-db-gestionale .
+docker build -t portaportese/pp-db-gestionale .
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5430 -i -t portaportese/pp-db-gestionale
+docker run -p 5432:5430 -i -t portaportese/pp-db-gestionale /bin/bash
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5430 -i -t portaportese/pp-db-gestionale
+docker run -p 5432:5430 -i -t portaportese/pp-db-gestionale /bin/bash
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5430 -i -t portaportese/pp-db-gestionale
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password -i -t portaportese/pp-db-gestionale
+docker build -t portaportese/pp-db-gestionale .
+docker build -t portaportese/pp-db-gestionale .
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password -i -t portaportese/pp-db-gestionale
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale &
+docker ps
+docker stop 11f7487306487cff4c945ba73ac9f94b557a30dbef9bf2b34e823dfcd53bbb57
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale &
+docker stop pp-db-gestionale
+docker stop ecstatic_payne
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/ppdbgest
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/ppdbgest:v1.0
+docker run -p 5432:5432 portaportese/ppdbgest:v1.0 /bin/bash
+docker ps
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 /bin/bash
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 start
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 postgres
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 postgres2
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 'select 1'
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 postgres postgres --help
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 'postgres --help'
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 'postgres -D /var/lib/postgresql/data'
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 postgres
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 postgres
+docker run -i -t -p 5432:5432 portaportese/ppdbgest:v1.0 'postgres -D /var/lib/postgresql/data'
+docker run -i -t -p 5432:5432 e79ae4a850b0bba5eca26bc523e56a00a4c283a38c1d0059ab29c0941326be8f 'postgres -D /var/lib/postgresql/data'
+docker images
+docker logs
+docker version
+rm docker-entrypoint.sh.sh
+docker build -t portaportese/pp-db-gestionale .
+docker run -p 5432:5432 portaportese/ppdbgest:v1.0
+docker create -v /dbdata --name dbdata training/postgres /bin/true
+docker create -v /dbdata --name dbdata training/postgres /bin/true
+docker create -v /dbdata --name dbdata postgres /bin/true
+docker images
+docker volumes
+docker volum
+docker volume
+docker create -v /dbdata --name dbdata postgres /bin/true
+docker rm -v /dbdata
+docker create -v /dbdata --name dbdata portaportese/pp-db-gestionale /bin/true
+docker create -v /dbdata --name /var/lib/postgresql-static/data portaportese/pp-db-gestionale /bin/true
+docker build -t portaportese/pp-db-gestionale .
+docker create -v /dbdata --name /pg/data portaportese/pp-db-gestionale /bin/true
+docker create -v /pgdata --name pgdata portaportese/pp-db-gestionale /bin/true
+docker create -v /pg/data --name pgdata portaportese/pp-db-gestionale /bin/true
+docker rm -v /pgdata
+docker create -v /pg/data --name pgdata portaportese/pp-db-gestionale /bin/true
+man docker create -v
+man docker create
+man docker
+docker run -d --volumes-from /pg/data -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker run -d --volumes-from pgdata -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker ps
+docker ru--volumes-from pgdata -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker ps
+docker run -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+boot2docker ssh
+docker run martin/docker-cleanup-volumes
+docker ps
+docker run martin/docker-cleanup-volumes
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes --dry-run
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+boot2docker ssh
+docker images
+docker build -t portaportese/pp-db-gestionale .
+docker run -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker create -v /pg/data --name pgdata portaportese/pp-db-gestionale /bin/true
+docker rm -v /pgdata
+docker create -v /pg/data --name pgdata portaportese/pp-db-gestionale /bin/true
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker ps
+docker stop determined_archimedes
+docker run -i -t -d --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker ps
+docker stop distracted_bell s
+docker stop distracted_bell
+docker stop distracted_bell
+docker ps
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker ps
+docker stop drunk_ptolemy
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker ps
+docker images
+docker ps
+docker exec -it 6b7c67aeeaea bash
+docker stop 6b7c67aeeaea
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 portaportese/pp-db-gestionale
+docker inspect 9e05f7f61bf013b0c7e485680dd833bf9e10630665be6de242e3883fba098823
+ll /mnt/sda1/var/lib/docker/volumes/06841e97cafe069bd31249135cfa6e60b339e46fea51eea6dec4a28e0d2e15fb/
+docker exec -it 6b7c67aeeaea bash
+docker ps
+docker exec -it 9e05f7f61bf013b0c7e485680dd833bf9e10630665be6de242e3883fba098823 bash
+docker stop hopeful_brown
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 portaportese/pp-db-gestionale
+docker ps
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 portaportese/pp-db-gestionale
+docker ps
+docker ps
+docker run -p 5432:5430 -e POSTGRES_PASSWORD=password -i -t portaportese/pp-db-gestionale
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 portaportese/pp-db-gestionale
+docker ps
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 portaportese/pp-db-gestionale /bin/bash
+docker ps
+docker ps
+docker ps
+docker stop 21cb6cb57ec1
+docker images
+docker build -t portaportese/pp-db-gestionale .
+docker run --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker create -v /pg/data --name pga400data postgres /bin/true
+docker run -d --volumes-from pga400data -i -t -p 5432:5434 portaportese/pp-dba400 /bin/bash
+docker run -d --volumes-from pga400data -i -t -p 5432:5434 portaportese/pp-dba400
+docker run -d --volumes-from pga400data -i -t -p 5432:5434 portaportese/pp-dba400
+docker ps
+docker stop 0dc0ecf3d3990ab75bce3af037f122e55e5ade34a0b9657962478cb96d6d4d49
+docker run -d --volumes-from pga400data -i -t -p 5432:5434 portaportese/pp-dba400
+docker ps
+docker stop  c97dc13dd1f2e0ac1e152b60262268097a551573144669f6f04c98a58d699c87
+docker run --volumes-from pga400data -i -t -p 5432:5434 portaportese/pp-dba400
+docker run -d --volumes-from pga400data -i -t -p 5434:5432 -e POSTGRES_PASSWORD=password portaportese/pp-dba400
+docker ps
+docker stop e8e41de30537424aa340ef26b8c05bd7903b995c5f859f1a5bcbd2433eb75d2d
+docker run --volumes-from pga400data -i -t -p 5434:5432 -e POSTGRES_PASSWORD=password portaportese/pp-dba400
+docker run -d --volumes-from pga400data -i -t -p 5434:5432 -e POSTGRES_PASSWORD=password portaportese/pp-dba400
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale
+docker ps
+docker stop *
+docker stop goofy_fermat sharp_darwin
+docker p
+docker ps
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale /bin/bash
+docker ps
+docker exec -it docker exec -it bash
+docker exec -it 4ded1547fbc1 exec -it bash
+docker exec -it 4ded1547fbc1 bash
+docker ps
+docker stop 4ded1547fbc10822d596e10ac266ad5e562b7924b0cfb6e4c08b3a499c99a483
+docker ps
+docker run -d --volumes-from pgdata -i -t -p 5432:5432 -e POSTGRES_PASSWORD=password portaportese/pp-db-gestionale /bin/bash
+docker exec -it 1a8efb47b03901470435cb977a900dc254998b4f682ba2c652b34ae5bb984a27 bash
+docker ps
+docker stop 1a8efb47b03901470435cb977a900dc254998b4f682ba2c652b34ae5bb984a27
+docker ps
+docker stop 8c1ff4cea65c2ec1c33709b6ff5e1ec595b8f4910c066ea1ec845adb6b03e2d2
+docker ps
+docker ps
+docker stop 9b6ee5153e3d1b29056f5f4a68879bb0d481f4569b6e486f770f160871f470dc
+eval "$(boot2docker shellinit)"
+boot2docker ip
+boot2docker ip
+docker ps
+eval "$(boot2docker shellinit)"
+docker ps
+docker commit -m "db gestionale solo dati niente imgs" -a "Edoardo Ceccarelli" e4fbc9c86053 portaportese/ppdbgest:v1.0
+docker images
+docker images
+docker images
+docker ps
+docker attach c7dae13da629030ca13948b54e50f2a57bdbe998ef8aa751d07368ad497be642
+boot2docker ip
+docker ps
+docker exec -it [container-id] bash
+docker exec -it e79ae4a850b0 bash
+docker ps
+docker commit -m "db gestionale solo dati niente imgs" -a "Edoardo Ceccarelli" e79ae4a850b0bba5eca26bc523e56a00a4c283a38c1d0059ab29c0941326be8f portaportese/ppdbgest:v1.0
+docker ps
+docker images
+docker commit -m "db gestionale solo dati niente imgs" -a "Edoardo Ceccarelli" tender_shockley portaportese/ppdbgest:v1.0
+docker images
+docker pull martin/docker-cleanup-volumes
+docker run martin/docker-cleanup-volumes
+boot2docker ip
+boot2docker ip
+docker ps
+docker exec -it bash elated_mccarthy
+docker exec bash -it elated_mccarthy
+docker exec -it elated_mccarthy bash
+docker ps
+docker commit -m "db gestionale" -a "Edoardo Ceccarelli" drunk_goldstine portaportese/ppdbgest:v1.0
+docker images
+docker stop portaportese/pp-db-gestionale
+docker stop 98669a300aa7
+docker images
+docker ps
+docker stop 581530cb4993
+eval "$(boot2docker shellinit)"
+docker run -p 80:80 --link pp9.prv.lan --link pp4.prv.lan --name ppweb -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 --link pp9.prv.lan --name ppweb -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+docker rm ppweb
+docker run -p 80:80 --link pp9.prv.lan --name ppweb -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+docker run -p 80:80 --link pp9.prv.lan --name ppweb -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+docker rm ppweb
+docker run -p 80:80 --link pp9.prv.lan --name ppweb -i -t -v ~/ppweb:/home/ppjr/default-ear/default-war portaportese/ppstart:v1.1 sh /root/pplaunch
+lynx http://stackoverflow.com/questions/31380881/docker-in-production-inside-a-vps
+docker ps
+eval "$(boot2docker shellinit)"
+docker ps
+docker stop adoring_heisenberg
+docker ps
+docker ps
+docker stop high_babbage
+docker stop dockerppweb
+docker stop dockerppweb
+docker stop dockerppweb && docker rm dockerppweb
+docker stop dockerppweb && docker rm dockerppweb
+docker stop dockerppweb && docker rm dockerppweb
+docker stop dockerppweb && docker rm dockerppweb
+docker stop dockerppweb && docker rm dockerppweb
+git checkout modifiche-docker
+git checkout -b modifiche-docker
+git add . && git commit -m "prima versione con isdebuglight per docker" && git push origin
+git diff modifiche-docker
+git icdiff modifiche-docker
+git icdiff modifiche-docker
+git merge modifiche-docker --no-ff
+git merge modifiche-docker --no-ff
+git checkout modifiche-docker
+git merge modifiche-docker --no-ff
+git merge modifiche-docker --no-ff
+git add . && git commit -m "modifiche per docker in locale" && git push origin
+cd docker-portaportese-amazon-aws/
+cd backups/pp-postgres-docker/
+cd pp-postgres-docker/
+eval "$(boot2docker shellinit)"
+boot2docker up
+eval "$(boot2docker shellinit)"
+docker ps
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes --dry-run
+boot2docker stop
+boot2docker start
+docker ps
+boot2docker upgrade
+docker ps
+docker images
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes --dry-run
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+docker images
+cd docker-portaportese-amazon-aws/
+mv docker-portaportese-amazon-aws DAARCHIVIARE/
+mv portaportese.dockercfg DAARCHIVIARE/
+ln -s backups docker_ambiente
+cd docker_ambiente
+ln -s backups docker_ambiente_pp
+rm docker_ambiente
+docker images --tree
+docker images
+boot2docker up
+eval "$(boot2docker shellinit)"
+docker imnages
+docker imnag
+docker images
+docker images
+docker images
+boot2docker upgrade
+docker images
+docker images --trewe
+docker images --tree
+eval "$(boot2docker shellinit)"
+boot2docker up
+eval "$(boot2docker shellinit)"
+docker ps
+docker run -d -P -v /Users/eddy/workspace/ppdata-mvn-ws/target/portaportesews:/var/lib/jetty/webapps/mywebapp jetty:9
+docker run -d jetty:9 --list-config
+docker run -d jetty:9 --list-config
+docker run -d jetty:9 --list-config
+docker ps
+cd docker_ambiente_pp/
+git add . && git commit -m "web.xml pronto per test docker" && git push origin
+git add . && git commit -m "System.err.println come loggit add . && git commit -m "modifica registrazione con ws per login con facebook finale \!" && git push origin e test su docker" && git push origin
+git add . && git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "modifica registrazione con ws per login con facebook finale \!" && git push origin e test su docker" && git push origin e test su docker" && git push origin
+git add . && git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "modifica registrazione con ws per login con facebook finale \!" && git push origin e test su docker" && git push origin e test su docker" && git push origin e test su docker" && git push origin
+git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "modifica registrazione con ws per login con facebook finale \!" && git push origin e test su docker" && git push origin e test su docker" && git push origin e test su docker" && git push origin e test su docker"
+git commit -m "System err println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "System.err.println come loggit add . && git commit -m "modifica registrazione con ws per login con facebook finale \!" && git push origin e test su docker" && git push origin e test su docker" && git push origin e test su docker" && git push origin e test su docker"
+git commit -m "Systemerrprintln come loge test su docker"
+cd docker_ambiente_pp/
+docker build
+docker build .
+eval "$(boot2docker shellinit)"
+boot2docker up
+eval "$(boot2docker shellinit)"
+docker build .
+docker ps
+docker images
+docker rm e95d4fbd53cc
+docker images rm e95d4fbd53cc
+docker images --help
+docker rmi e95d4fbd53cc
+docker build --help.
+docker build --help
+docker build .
+docker build .
+docker build -t jetty7cargo .
+docker build -t jetty7cargo .
+docker build -t jetty7cargo .
+docker build -t jetty7cargo .
+docker build -t jetty7cargo .
+docker build -t jetty7cargo .
+docker images
+docker run jetty7cargo
+boot2docker ip
+docker run jetty7cargo
+docker ps
+docker images
+docker rmi jetty7cargo
+docker rmi 7a6317aca392
+docker rmc 7a6317aca392
+docker pull portaportese/ppstart:v1.1
+docker
+boot2docker ip
+boot2docker up
+eval "$(boot2docker shellinit)"
+docker pull portaportese/ppstart:v1.1
+docker --version
+docker --version\
+docker --version
+boot2docker down
+boot2docker up
+boot2docker down
+docker images
+docker --version
+docker --version
+docker-machine
+docker-machine upgrade boot2docker-vm
+docker-machine upgrade
+docker-machine list
+docker-machine ls
+docker-machine stop
+docker-machine stop default
+docker-machine œ
+docker help
+boot2docker status
+docker-machine
+docker-machine active
+docker-machine stop
+docker-machine stop default
+docker-machine stop default
+ll VirtualBox\ VMs/boot2docker-vm.MIE/boot2docker-vm.vmdk
+cp VirtualBox\ VMs/boot2docker-vm.MIE/boot2docker-vm.vmdk .docker/machine/machines/default/disk.vmdk
+cp VirtualBox\ VMs/boot2docker-vm.MIE/boot2docker-vm.vmdk .docker/machine/machines/default/disk.vmdk
+docker-machine start default
+docker-machine
+docker-machine upgrade
+docker-machine upgrade default
+docker-machine ls
+rm -fr .docker
+rm -fr .docker
+find /Volumes/LaCie/Backups.backupdb/jib/Latest/Macintosh\ HD/var/ | grep docker
+sudo find /Volumes/LaCie/Backups.backupdb/jib/Latest/Macintosh\ HD/var/ | grep docker
+ll /Volumes/LaCie/Backups.backupdb/jib/Latest/Macintosh\ HD/var/lib/docker
+docker help
+boot2docker status
+docker-machine
+docker-machine active
+docker-machine stop
+docker-machine stop default
+docker-machine stop default
+ll VirtualBox\ VMs/boot2docker-vm.MIE/boot2docker-vm.vmdk
+cp VirtualBox\ VMs/boot2docker-vm.MIE/boot2docker-vm.vmdk .docker/machine/machines/default/disk.vmdk
+cp VirtualBox\ VMs/boot2docker-vm.MIE/boot2docker-vm.vmdk .docker/machine/machines/default/disk.vmdk
+docker-machine start default
+docker-machine
+docker-machine upgrade
+docker-machine upgrade default
+docker-machine ls
+rm -fr .docker
+rm -fr .docker
+find /Volumes/LaCie/Backups.backupdb/jib/Latest/Macintosh\ HD/var/ | grep docker
+sudo find /Volumes/LaCie/Backups.backupdb/jib/Latest/Macintosh\ HD/var/ | grep docker
+ll /Volumes/LaCie/Backups.backupdb/jib/Latest/Macintosh\ HD/var/lib/docker
+boot2docker up
+eval "$(boot2docker shellinit)"
+docker images
+docker --version
+boot2docker down
+mv boot2docker-vm boot2docker-vm.MIE
+docker --version
+brew search docker
+brew info docker
+ll /usr/local/bin/docker
+ll /usr/local/bin/docker*
+rm /usr/local/bin/docker*
+ll /usr/local/bin/docker*
+find / | grep docker
+brew search docker
+brew install docker-machine-parallels
+brew install docker
+docker-machine help
+docker-machine create
+docker-machine create --driver docker-machine-driver-parallels
+docker-machine create --driver=parallels default
+docker-machine create --driver=parallels prl-dev
+docker-machine env prl-dev
+docker-machinels
+docker-machine ls
+docker-machine stop
+docker-machine stop prl-dev
+docker-machine
+docker-machine rm prl-dev
+docker-machine ls
+docker-machine rm default
+docker-machine active
+docker-machine stop
+ll .docker
+rm -fr .docker
+cat .dockercfg
+docker-machine create --driver=parallels default
+docker-machine ls
+docker pull portaportese/ppstart
+docker pull portaportese/ppstart:v1.1
+docker info
+docker images
+docker-machine
+docker-machine ls
+docker
+brew rmtree docker
+brew rmtree boot2docker
+docker
+which docker
+ ~
