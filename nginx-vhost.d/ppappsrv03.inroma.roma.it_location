@@ -1,6 +1,10 @@
 #
 # Wide-open CORS config for nginx
 #
+#	
+
+     #client_body_in_file_only on;
+
      if ($request_method = 'OPTIONS') {
         add_header 'Access-Control-Allow-Origin' '*';
         #
