@@ -20,6 +20,8 @@
 
     <Set name="virtualHosts">
         <Array type="String">
+            <Item>ppappsrvtest.local.roma.it</Item>
+            <Item>ppappsrv04.inroma.roma.it</Item>
             <Item>ppappsrv03.inroma.roma.it</Item>
             <Item>ppappsrv02.inroma.roma.it</Item>
             <Item>data.portaportese.it</Item>
@@ -74,7 +76,7 @@
                         <Put name="mail.smtp.host">mypostfix</Put>
                         <Put name="mail.smtp.auth">true</Put>
                         <Put name="mail.from">info@portaportese.it</Put>
-                        <Put name="mail.debug">true</Put>
+                        <Put name="mail.debug">false</Put>
                     </New>
                 </Set>
             </New>
