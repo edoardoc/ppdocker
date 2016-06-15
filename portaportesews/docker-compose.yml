@@ -1,0 +1,28 @@
+version: '2'
+services:
+  datapp:
+    build: .
+#    extra_hosts:
+#        - "pp1.prv.lan:194.242.228.82"
+#        - "pp3.prv.lan:194.242.228.81"
+#        - "pp4.prv.lan:194.242.228.81"
+    environment:
+        VIRTUAL_HOST: ppappsrv03.inroma.roma.it
+        VIRTUAL_PORT: 8080
+    depends_on:
+        - myproxy
+        - mypostfix
+  myproxy:
+    image: jwilder/nginx-proxy
+    volumes:
+        - ./nginx-vhost.d:/etc/nginx/vhost.d:ro
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+        - "80:80"
+  mypostfix:
+    image: catatnight/postfix
+    environment:
+        maildomain: mail.portaportese.it
+        smtp_user: ppmailer:ciccio123mail
+    ports:
+        - "25:25"
