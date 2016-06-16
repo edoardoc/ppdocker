@@ -1,5 +1,13 @@
 version: '2'
 services:
+  myproxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+        - "80:80"
+    volumes:
+        - ./nginx-vhost.d:/etc/nginx/vhost.d:ro
+        - /var/run/docker.sock:/tmp/docker.sock:ro
   datapp:
     build: .
     extra_hosts:
@@ -14,13 +22,6 @@ services:
     depends_on:
         - myproxy
         - mypostfix
-  myproxy:
-    image: jwilder/nginx-proxy
-    volumes:
-        - ./nginx-vhost.d:/etc/nginx/vhost.d:ro
-        - /var/run/docker.sock:/tmp/docker.sock:ro
-    ports:
-        - "80:80"
   mypostfix:
     image: catatnight/postfix
     environment:

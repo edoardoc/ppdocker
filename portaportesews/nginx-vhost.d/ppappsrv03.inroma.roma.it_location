@@ -1,7 +1,8 @@
 #
 # Wide-open CORS config for nginx
 #
-#	
+#
+    # max_fails=10;
 
      #client_body_in_file_only on;
 

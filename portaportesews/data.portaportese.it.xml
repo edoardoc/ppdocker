@@ -29,13 +29,12 @@
     </Set>
 
     <!-- disable cookies
-  <Get name="sessionHandler">
-     <Get name="sessionManager">
-        <Set name="usingCookies" type="boolean">false</Set>
-     </Get>
-  </Get>
-  -->
-
+    <Get name="sessionHandler">
+        <Get name="sessionManager">
+            <Set name="usingCookies" type="boolean">false</Set>
+        </Get>
+    </Get>
+ -->
     <Get name="securityHandler">
         <Set name="loginService">
             <New class="org.eclipse.jetty.security.HashLoginService">
@@ -52,16 +51,6 @@
         <Set name="checkWelcomeFiles">true</Set>
     </Get>
 
-    <!-- Non standard error page mapping -->
-    <!--
-  <Get name="errorHandler">
-    <Call name="addErrorPage">
-      <Arg type="int">500</Arg>
-      <Arg type="int">599</Arg>
-      <Arg type="String">/dump/errorCodeRangeMapping</Arg>
-    </Call>
-  </Get>
-  -->
     <New id="mail" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg>mail/Session</Arg>
         <Arg>
