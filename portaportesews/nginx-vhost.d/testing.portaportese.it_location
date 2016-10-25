@@ -3,6 +3,10 @@
 #
 #
      #client_body_in_file_only on;
+     #
+     location /static {
+	root /web;
+     }
 
      if ($request_method = 'OPTIONS') {
         add_header 'Access-Control-Allow-Origin' '*';
