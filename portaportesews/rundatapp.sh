@@ -7,9 +7,9 @@ if [ $? -eq 0 ]; then
 		-e HTTPS_METHOD=noredirect \
 		-e VIRTUAL_HOST=testing.portaportese.it \
 		-e VIRTUAL_PORT=8080 \
-		--add-host pp3.prv.lan:194.242.232.21 \
-		--add-host pp4.prv.lan:194.242.232.22 \
-		--add-host pp1.prv.lan:194.242.232.20 \
+		--add-host pp3.prv.lan:194.242.228.33 \
+		--add-host pp4.prv.lan:194.242.228.33 \
+		--add-host pp1.prv.lan:194.242.228.82 \
 		--link mypostfix jetty7ppws
 else
     echo FAIL
