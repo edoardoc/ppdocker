@@ -24,18 +24,18 @@ services:
     volumes:
       - ~/workspace/ppweb:/home/ppjr/default-ear/default-war
     extra_hosts:
-      - "pp200.prv.lan:192.168.1.49"
-      - "pp20.prv.lan:192.168.1.49"
-      - "pp22.prv.lan:192.168.1.49"
+      - "pp200.prv.lan:${IP_GESTIONALE}"
+      - "pp20.prv.lan:${IP_DBA1}"
+      - "pp22.prv.lan:${IP_DBA2}"
     depends_on:
         - ppws
 
   ppws:
     build: .
     extra_hosts:
-      - "pp200.prv.lan:192.168.1.49"
-      - "pp20.prv.lan:192.168.1.49"
-      - "pp22.prv.lan:192.168.1.49"
+      - "pp200.prv.lan:${IP_GESTIONALE}"
+      - "pp20.prv.lan:${IP_DBA1}"
+      - "pp22.prv.lan:${IP_DBA2}"
     environment:
         VIRTUAL_HOST: data.portaportese.it
         VIRTUAL_PORT: 8080
