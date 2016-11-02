@@ -5,7 +5,7 @@ services:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
     ports:
-      - 80
+      - "80:80"
     volumes:
       - ~/rmdtmsoft:/web/static
       - ~/cert:/etc/nginx/certs
@@ -17,10 +17,13 @@ services:
           - data.portaportese.it
 
   web:
-    image: portaportese/ppstart:v1.1
+    image: portaportese/ppstart:v1.2
     command: /bin/bash /root/pplaunch
+    environment:
+        VIRTUAL_HOST: www.portaportese.it
+        VIRTUAL_PORT: 8001
     ports:
-      - 80
+      - 8001
     volumes:
       - ~/workspace/ppweb:/home/ppjr/default-ear/default-war
     extra_hosts:
