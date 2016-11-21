@@ -1,0 +1,3 @@
+[submodule "ppweb"]
+	path = ppweb
+	url = https://eddyce@bitbucket.org/eddyce/ppweb.git
