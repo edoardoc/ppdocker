@@ -5,13 +5,15 @@ export IP_GESTIONALE=194.242.232.20
 export IP_DBA1=194.242.232.21
 export IP_DBA2=194.242.232.22
 
-# ATTENZIONE, PER USARE LOCALHOST DEVI VERIFICARE QUALE E'
-# L'IP CORRENTE!!!
-#myip="$(ipconfig getifaddr en0)"
-#echo my ip: "${myip}"
-#export IP_GESTIONALE=${myip}
-#export IP_DBA1=${myip}
-#export IP_DBA2=${myip}
+if [ "$1" == "test" ]; then
+	# ATTENZIONE, PER USARE LOCALHOST DEVI VERIFICARE QUALE E'
+	# L'IP CORRENTE!!!
+	myip="$(ipconfig getifaddr en0)"
+	echo my ip: "${myip}"
+	export IP_GESTIONALE=${myip}
+	export IP_DBA1=${myip}
+	export IP_DBA2=${myip}
+fi
 
 docker-compose build
 docker-compose up
