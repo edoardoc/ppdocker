@@ -20,12 +20,13 @@ services:
     image: portaportese/ppstart:v1.2
     command: /bin/bash /root/pplaunch
     environment:
-        VIRTUAL_HOST: www.portaportese.it
+#       VIRTUAL_HOST: www.portaportese.it
+        VIRTUAL_HOST: ppappsrv03.inroma.roma.it
         VIRTUAL_PORT: 8001
     ports:
       - 8001
     volumes:
-      - ~/workspace/ppweb:/home/ppjr/default-ear/default-war
+      - ./ppweb:/home/ppjr/default-ear/default-war
     extra_hosts:
       - "pp200.prv.lan:${IP_GESTIONALE}"
       - "pp20.prv.lan:${IP_DBA1}"
