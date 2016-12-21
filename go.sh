@@ -16,6 +16,7 @@ if [ "$1" == "test" ]; then
 fi
 
 docker-compose build
+docker-compose pull
 docker-compose up
 
 
