@@ -17,7 +17,7 @@ fi
 
 docker-compose build
 docker-compose pull
-docker-compose up
+docker-compose up -d
 
 
 # TEST:
