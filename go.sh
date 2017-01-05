@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # settaggi per produzione
-export IP_GESTIONALE=194.242.232.20
-export IP_DBA1=194.242.232.21
-export IP_DBA2=194.242.232.22
+export IP_GESTIONALE=194.242.228.82
+export IP_DBA1=194.242.228.33
+export IP_DBA2=194.242.228.33
 
 if [ "$1" == "test" ]; then
 	# ATTENZIONE, PER USARE LOCALHOST DEVI VERIFICARE QUALE E'
@@ -17,6 +17,7 @@ fi
 
 docker-compose build
 docker-compose pull
+docker-compose down
 docker-compose up -d
 
 
