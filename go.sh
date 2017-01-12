@@ -15,12 +15,13 @@ if [ "$1" == "test" ]; then
 	export IP_DBA2=${myip}
 fi
 
-docker-compose build
-docker-compose pull
-docker-compose down
-docker-compose up -d
-
+#docker-compose build
+#docker-compose pull
+#docker-compose down
+docker-compose up
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
+# curl -H "Host: wslocal.portaportese.it" localhost
 # curl -H "Host: www.portaportese.it" localhost
+# curl -H "Host: main.portaportese.it" localhost

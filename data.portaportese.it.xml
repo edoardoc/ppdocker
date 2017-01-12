@@ -20,10 +20,10 @@
 
     <Set name="virtualHosts">
         <Array type="String">
-            <Item>ppappsrvtest.local.roma.it</Item>
             <Item>ppappsrv04.inroma.roma.it</Item>
             <Item>ppappsrv03.inroma.roma.it</Item>
-            <Item>ppappsrv02.inroma.roma.it</Item>
+			<Item>ppappsrv02.inroma.roma.it</Item>
+			<Item>wslocal.portaportese.it</Item>
             <Item>testing.portaportese.it</Item>
             <Item>data.portaportese.it</Item>
         </Array>

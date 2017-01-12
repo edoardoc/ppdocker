@@ -15,13 +15,11 @@ services:
       default:
         aliases:
           - data.portaportese.it
-
   web:
     image: portaportese/ppstart:v1.2
     command: /bin/bash /root/pplaunch
     environment:
-#       VIRTUAL_HOST: www.portaportese.it
-        VIRTUAL_HOST: ppappsrv03.inroma.roma.it
+        VIRTUAL_HOST: www.portaportese.it, ppappsrv03.inroma.roma.it, main.portaportese.it
         VIRTUAL_PORT: 8001
     ports:
       - 8001
@@ -41,7 +39,7 @@ services:
       - "pp20.prv.lan:${IP_DBA1}"
       - "pp22.prv.lan:${IP_DBA2}"
     environment:
-        VIRTUAL_HOST: data.portaportese.it
+        VIRTUAL_HOST: data.portaportese.it, wslocal.portaportese.it
         VIRTUAL_PORT: 8080
     ports:
         - 8080
