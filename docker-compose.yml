@@ -17,6 +17,7 @@ services:
           - data.portaportese.it
   web:
     image: portaportese/ppstart:v1.2
+    container_name: www
     command: /bin/bash /root/pplaunch
     environment:
         VIRTUAL_HOST: www.portaportese.it, ppappsrv03.inroma.roma.it, main.portaportese.it
@@ -34,6 +35,7 @@ services:
 
   ppws:
     build: .
+    container_name: datapp
     extra_hosts:
       - "pp200.prv.lan:${IP_GESTIONALE}"
       - "pp20.prv.lan:${IP_DBA1}"
@@ -49,6 +51,7 @@ services:
 
   mypostfix:
     image: catatnight/postfix
+    container_name: mailer
     environment:
         maildomain: mail.portaportese.it
         smtp_user: ppmailer:ciccio123mail
