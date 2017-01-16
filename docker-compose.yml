@@ -25,7 +25,7 @@ services:
     ports:
       - 8001
     volumes:
-      - ./ppweb:/home/ppjr/default-ear/default-war
+      - ~/ppweb:/home/ppjr/default-ear/default-war
     extra_hosts:
       - "pp200.prv.lan:${IP_GESTIONALE}"
       - "pp20.prv.lan:${IP_DBA1}"
