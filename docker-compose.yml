@@ -6,6 +6,7 @@ services:
     container_name: nginx-proxy
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ~/rmdtmsoft:/web/static
       - ~/cert:/etc/nginx/certs
@@ -15,12 +16,13 @@ services:
       default:
         aliases:
           - data.portaportese.it
+          - testing.portaportese.it
   web:
     image: portaportese/ppstart:v1.2
     container_name: www
     command: /bin/bash /root/pplaunch
     environment:
-        VIRTUAL_HOST: www.portaportese.it, ppappsrv03.inroma.roma.it, main.portaportese.it
+        VIRTUAL_HOST: www.portaportese.it, testing.portaportese.it
         VIRTUAL_PORT: 8001
     ports:
       - 8001
