@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# settaggi per produzione
-export IP_GESTIONALE=194.242.228.82
-export IP_DBA1=194.242.228.33
-export IP_DBA2=194.242.228.33
+# settaggi per test locale
 
-if [ "$1" == "test" ]; then
+if [ "$1" == "" ]; then
 	# ATTENZIONE, PER USARE LOCALHOST DEVI VERIFICARE QUALE E'
 	# L'IP CORRENTE!!!
 	myip="$(ipconfig getifaddr en0)"
@@ -13,11 +10,18 @@ if [ "$1" == "test" ]; then
 	export IP_GESTIONALE=${myip}
 	export IP_DBA1=${myip}
 	export IP_DBA2=${myip}
+elif [ "$1" == "testdbremoto" ]; then
+	export IP_GESTIONALE=194.242.228.82
+	export IP_DBA1=194.242.228.33
+	export IP_DBA2=194.242.228.33
 elif [ "$1" == "production" ]; then
-        echo ATTENZIONE DB PRODUZIONE 
-        export IP_GESTIONALE=194.242.232.20
-        export IP_DBA1=194.242.232.21
-        export IP_DBA2=194.242.232.22
+	echo ATTENZIONE DB PRODUZIONE 
+	export IP_GESTIONALE=194.242.232.20
+	export IP_DBA1=194.242.232.21
+	export IP_DBA2=194.242.232.22
+else
+	echo uno tra: void \| test \| testdbremoto \| production
+	exit 1
 fi
 
 docker-compose build
@@ -27,6 +31,6 @@ docker-compose up -d
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
-# curl -H "Host: wslocal.portaportese.it" localhost
+# curl -H "Host: datalocal.portaportese.it" localhost
 # curl -H "Host: www.portaportese.it" localhost
-# curl -H "Host: main.portaportese.it" localhost
+# curl -H "Host: wwwlocal.portaportese.it" localhost

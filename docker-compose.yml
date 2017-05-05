@@ -22,7 +22,7 @@ services:
     container_name: www
     command: /bin/bash /root/pplaunch
     environment:
-        VIRTUAL_HOST: www.portaportese.it, testing.portaportese.it
+        VIRTUAL_HOST: www.portaportese.it, testing.portaportese.it, wwwlocal.portaportese.it
         VIRTUAL_PORT: 8001
     ports:
       - 8001
@@ -43,7 +43,7 @@ services:
       - "pp20.prv.lan:${IP_DBA1}"
       - "pp22.prv.lan:${IP_DBA2}"
     environment:
-        VIRTUAL_HOST: data.portaportese.it, wslocal.portaportese.it
+        VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it
         VIRTUAL_PORT: 8080
     ports:
         - 8080
