@@ -27,7 +27,10 @@ fi
 docker-compose build
 docker-compose pull
 docker-compose down
-docker-compose up -d
+
+# per far partire anche il www fai semplicemente 
+# docker-compose up -d
+docker-compose up -d ppws
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
