@@ -3,6 +3,13 @@
 #
 #
      #client_body_in_file_only on;
+     #
+     location /static {
+	root /web;
+     }
+
+
+     error_page  405     =200 $uri;
 
      if ($request_method = 'OPTIONS') {
         add_header 'Access-Control-Allow-Origin' '*';

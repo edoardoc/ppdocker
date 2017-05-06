@@ -8,9 +8,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ~/rmdtmsoft:/web/static
+      - /home/rmdtmsoft:/web/static
       - ~/cert:/etc/nginx/certs
-      - ./nginx-vhost.d:/etc/nginx/vhost.d:ro
+      - ~/ppdocker/nginx-vhost.d:/etc/nginx/vhost.d:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     networks:
       default:
