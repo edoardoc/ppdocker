@@ -5,7 +5,7 @@
      #client_body_in_file_only on;
      #
      location /static {
-	root /web;
+	    root /web;
      }
 
 
