@@ -8,7 +8,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ${WEBFOLDER}:/web/static
+      - ./rmdtmsoft:/web/static
       - ~/cert:/etc/nginx/certs
       - ~/ppdocker/nginx-vhost.d:/etc/nginx/vhost.d:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -20,6 +20,8 @@ services:
   mydb:
     image: postgres:9.4
     container_name: mydb
+    ports:
+      - 5432:5432
     volumes:
       - ./Postgres/var-9.4:/var/lib/postgresql/data
 
@@ -34,20 +36,20 @@ services:
       - 8001
     volumes:
       - ~/ppweb:/home/ppjr/default-ear/default-war
-    extra_hosts:
-      - "pp200.prv.lan:${IP_GESTIONALE}"
-      - "pp20.prv.lan:${IP_DBA1}"
-      - "pp22.prv.lan:${IP_DBA2}"
+    links:
+      - "mydb:pp200.prv.lan"
+      - "mydb:pp20.prv.lan"
+      - "mydb:pp22.prv.lan"
     depends_on:
         - ppws
 
   ppws:
     build: .
     container_name: datapp
-    extra_hosts:
-      - "pp200.prv.lan:${IP_GESTIONALE}"
-      - "pp20.prv.lan:${IP_DBA1}"
-      - "pp22.prv.lan:${IP_DBA2}"
+    links:
+      - "mydb:pp200.prv.lan"
+      - "mydb:pp20.prv.lan"
+      - "mydb:pp22.prv.lan"
     environment:
         HTTPS_METHOD: noredirect
         VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it
