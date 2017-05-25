@@ -17,6 +17,12 @@ services:
         aliases:
           - data.portaportese.it
           - testing.portaportese.it
+  mydb:
+    image: postgres:9.4
+    container_name: mydb
+    volumes:
+      - ./Postgres/var-9.4:/var/lib/postgresql/data
+
   web:
     image: portaportese/ppstart:v1.2
     container_name: www
