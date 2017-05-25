@@ -4,6 +4,9 @@ if [ "$1" == "" ]; then
 	# ATTENZIONE, PER USARE LOCALHOST DEVI VERIFICARE QUALE E'
 	# L'IP CORRENTE!!!
 	myip="$(ipconfig getifaddr en0)"
+	if [ ${#myip} == 0 ]; then
+			myip="$(ipconfig getifaddr en1)"
+	fi
 	echo my ip: "${myip}"
 	export WEBFOLDER=./rmdtmsoft
 	export IP_GESTIONALE=${myip}
@@ -31,7 +34,7 @@ docker-compose down
 
 # per far partire anche il www fai semplicemente 
 # docker-compose up -d
-docker-compose up -d ppws
+docker-compose up 
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
