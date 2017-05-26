@@ -41,6 +41,7 @@ services:
       - "mydb:pp20.prv.lan"
       - "mydb:pp22.prv.lan"
     depends_on:
+        - mydb
         - ppws
 
   ppws:
@@ -57,6 +58,7 @@ services:
     ports:
         - 8080
     depends_on:
+        - mydb
         - myproxy
         - mypostfix
 
