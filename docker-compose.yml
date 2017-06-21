@@ -26,14 +26,14 @@ services:
       - ./Postgres/var-9.4:/var/lib/postgresql/data
 
   web:
-    image: portaportese/ppstart:v1.2
+    image: portaportese/ppstart:v1.1
     container_name: www
     command: /bin/bash /root/pplaunch
     environment:
         VIRTUAL_HOST: www.portaportese.it, testing.portaportese.it, wwwlocal.portaportese.it
-        VIRTUAL_PORT: 8001
+        VIRTUAL_PORT: 80
     ports:
-      - 8001
+      - 80
     volumes:
       - ~/ppweb:/home/ppjr/default-ear/default-war
     links:
