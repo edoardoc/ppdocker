@@ -17,6 +17,7 @@ services:
         aliases:
           - data.portaportese.it
           - testing.portaportese.it
+          - wwwocean.portaportese.mobi
   mydb:
     image: postgres:9.4
     container_name: mydb
