@@ -7,7 +7,7 @@ docker-compose down
 
 # per far partire anche il www fai semplicemente 
 # docker-compose up -d
-docker-compose up 
+docker-compose up $1
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
