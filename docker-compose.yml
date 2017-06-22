@@ -12,12 +12,7 @@ services:
       - ~/cert:/etc/nginx/certs
       - ~/ppdocker/nginx-vhost.d:/etc/nginx/vhost.d:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
-    networks:
-      default:
-        aliases:
-          - data.portaportese.it
-          - testing.portaportese.it
-          - wwwocean.portaportese.mobi
+      
   mydb:
     image: postgres:9.4
     container_name: mydb
@@ -31,7 +26,7 @@ services:
     container_name: www
     command: /bin/bash /root/pplaunch
     environment:
-        VIRTUAL_HOST: www.portaportese.it, testing.portaportese.it, wwwlocal.portaportese.it, wwwocean.portaportese.mobi
+        VIRTUAL_HOST: www.portaportese.it, wwwlocal.portaportese.it, wwwocean.portaportese.mobi
         VIRTUAL_PORT: 80
     ports:
       - 80
