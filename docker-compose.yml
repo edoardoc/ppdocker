@@ -26,7 +26,7 @@ services:
     volumes:
       - ./Postgres/var-9.4:/var/lib/postgresql/data
 
-  web:
+  www:
     image: portaportese/ppstart:v1.1
     container_name: www
     command: /bin/bash /root/pplaunch
@@ -47,7 +47,7 @@ services:
 
   ppws:
     build: .
-    container_name: datapp
+    container_name: ppws
     links:
       - "mydb:pp200.prv.lan"
       - "mydb:pp20.prv.lan"
