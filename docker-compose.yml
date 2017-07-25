@@ -22,7 +22,7 @@ services:
     image: postgres:8.4
     container_name: mydbpp
     ports:
-      - 5432:5432
+      - 5430:5432
     volumes:
       - ./Postgres/dbpp:/var/lib/postgresql/data
 
