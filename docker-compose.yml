@@ -18,13 +18,21 @@ services:
           - data.portaportese.it
           - datalocal.portaportese.it
           - dataocean.portaportese.it
-  mydb:
-    image: postgres:9.4
-    container_name: mydb
+  mydbpp:
+    image: postgres:8.4
+    container_name: mydbpp
     ports:
       - 5432:5432
     volumes:
-      - ./Postgres/var-9.4:/var/lib/postgresql/data
+      - ./Postgres/dbpp:/var/lib/postgresql/data
+
+  mydba400:
+    image: postgres:8.4
+    container_name: mydba400
+    ports:
+      - 5432:5432
+    volumes:
+      - ./Postgres/dba400:/var/lib/postgresql/data
 
   www:
     image: portaportese/ppstart:v1.1
@@ -38,20 +46,21 @@ services:
     volumes:
       - ~/ppweb:/home/ppjr/default-ear/default-war
     links:
-      - "mydb:pp200.prv.lan"
-      - "mydb:pp20.prv.lan"
-      - "mydb:pp22.prv.lan"
+      - "mydbpp:pp200.prv.lan"
+      - "mydba400:pp20.prv.lan"
+      - "mydba400:pp22.prv.lan"
     depends_on:
-        - mydb
-        - ppws
+	- mydbpp
+	- mydba400
+	- ppws
 
   ppws:
     build: .
     container_name: ppws
     links:
-      - "mydb:pp200.prv.lan"
-      - "mydb:pp20.prv.lan"
-      - "mydb:pp22.prv.lan"
+      - "mydbpp:pp200.prv.lan"
+      - "mydba400:pp20.prv.lan"
+      - "mydba400:pp22.prv.lan"
     environment:
         HTTPS_METHOD: noredirect
         VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it, dataocean.portaportese.it
@@ -59,9 +68,10 @@ services:
     ports:
         - 8080
     depends_on:
-        - mydb
-        - myproxy
-        - mypostfix
+	- mydbpp
+	- mydba400
+	- myproxy
+	- mypostfix
 
   mypostfix:
     image: catatnight/postfix
