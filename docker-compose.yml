@@ -55,7 +55,7 @@ services:
       - ppws
 
   ppws:
-    build: .
+    build: myjetty
     container_name: ppws
     links:
       - "mydbpp:pp200.prv.lan"
