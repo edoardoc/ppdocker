@@ -19,7 +19,7 @@ services:
           - datalocal.portaportese.it
           - dataocean.portaportese.it
   mydbpp:
-    image: postgres:8.4
+    build: mydbs
     container_name: mydbpp
     ports:
       - 5430:5432
@@ -27,7 +27,7 @@ services:
       - ./Postgres/dbpp:/var/lib/postgresql/data
 
   mydba400:
-    image: postgres:8.4
+    build: mydbs
     container_name: mydba400
     ports:
       - 5432:5432
