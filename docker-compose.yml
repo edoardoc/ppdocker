@@ -21,6 +21,9 @@ services:
   mydbpp:
     build: mydbs
     container_name: mydbpp
+    environment:
+        VIRTUAL_HOST: pp200.prv.lan
+        VIRTUAL_PORT: 5432
     ports:
       - 5430:5432
     volumes:
@@ -29,6 +32,9 @@ services:
   mydba400:
     build: mydbs
     container_name: mydba400
+    environment:
+        VIRTUAL_HOST: pp20.prv.lan, pp22.prv.lan
+        VIRTUAL_PORT: 5432
     ports:
       - 5432:5432
     volumes:
