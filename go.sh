@@ -2,8 +2,8 @@
 
 export WEBFOLDER=./rmdtmsoft
 docker-compose down
-docker-compose build
 docker-compose pull
+docker-compose build
 
 # per far partire anche il www fai semplicemente 
 # docker-compose up -d
