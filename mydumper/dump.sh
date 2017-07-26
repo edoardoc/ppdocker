@@ -9,11 +9,10 @@ DUMPFILE="${PREFIX}_${TODAY}"
 
 MAXDUMPS=4
 
-
 # Main
 [ ! -d $DUMPDIR ] && mkdir $DUMPDIR
 export PATH="$PATH:/usr/local/pgsql/bin"
-pg_dump -b -Fc -Z9 -c -f ${DUMPFILE} -d "$PGDB" > /dump/${DUMPFILE}.log 2>&1
+pg_dump -b --encoding utf8 -Fc -Z9 -c -f ${DUMPFILE} -d "$PGDB" > /dump/${DUMPFILE}.log 2>&1
 
 # aggiunte le istruzioni per spostare il file nella dumpdir
 chown postgres.postgres ${DUMPFILE}

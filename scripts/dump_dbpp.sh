@@ -1,6 +1,9 @@
-docker run -ti --rm 
-    -v /tmp:/dump \   # where to put db dumps
-    -e PGUSER=mybackup \
+docker build  -t mydumper ./mydumper
+docker run -ti --rm \
+    -v /mnt/volume-fra1-dumps/:/dump \
+    -e PGDB=portaportese \
     -e PGPASSWORD=dbPasswordExampleLong \
-    -e PGHOST=mybackup \
-    mydumper dump
+    -e PGHOST=194.242.232.200 \
+    -e PGUSER=pepper \
+    -e PGPORT=5432 \
+    mydumper
