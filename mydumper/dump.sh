@@ -4,7 +4,6 @@
 cd /dump/
 
 TODAY=`date +%Y%m%d-%H%M`
-PREFIX=ppdump
 DUMPFILE="${PREFIX}_${TODAY}"
 
 MAXDUMPS=4
