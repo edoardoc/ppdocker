@@ -1,4 +1,3 @@
-docker build  -t mydumper ./mydumper
 docker run -ti --rm \
     -v /mnt/volume-fra1-dumps/:/dump \
     -e PREFIX=dbpp \
