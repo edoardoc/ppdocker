@@ -32,8 +32,8 @@ services:
     ports:
       - 5430:5432
     volumes:
-      - ./Postgres/dbpp/data:/var/lib/postgresql/data
-      - ./Postgres/dumps:/pginput
+      - /mnt/volume-fra1-01/dba400:/var/lib/postgresql/data
+      - /mnt/volume-fra1-dumps:/pginput
 
   mydba400:
     build: mydb
@@ -48,8 +48,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./Postgres/dba400/data:/var/lib/postgresql/data
-      - ./Postgres/dumps:/pginput
+      - /mnt/volume-fra1-01/dba400:/var/lib/postgresql/data
+      - /mnt/volume-fra1-dumps:/pginput
 
   www:
     image: portaportese/ppstart:v1.1
