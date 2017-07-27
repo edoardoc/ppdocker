@@ -19,7 +19,7 @@ services:
           - datalocal.portaportese.it
           - dataocean.portaportese.it
   mydbpp:
-    build: mydbs
+    build: mydbs/dbpp
     container_name: mydbpp
     environment:
         VIRTUAL_HOST: pp200.prv.lan
@@ -28,9 +28,10 @@ services:
       - 5430:5432
     volumes:
       - ./Postgres/dbpp:/var/lib/postgresql/data
+      - ./Postgres/dumps:/pginput
 
   mydba400:
-    build: mydbs
+    build: mydbs/dba400
     container_name: mydba400
     environment:
         VIRTUAL_HOST: pp20.prv.lan, pp22.prv.lan
@@ -39,6 +40,7 @@ services:
       - 5432:5432
     volumes:
       - ./Postgres/dba400:/var/lib/postgresql/data
+      - ./Postgres/dumps:/pginput
 
   www:
     image: portaportese/ppstart:v1.1
