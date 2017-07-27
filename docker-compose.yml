@@ -32,7 +32,7 @@ services:
     ports:
       - 5430:5432
     volumes:
-      - /mnt/volume-fra1-01/dba400:/var/lib/postgresql/data
+      - /mnt/volume-fra1-01/dba400:/pg/data
       - /mnt/volume-fra1-dumps:/pginput
 
   mydba400:
@@ -48,7 +48,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /mnt/volume-fra1-01/dba400:/var/lib/postgresql/data
+      - /mnt/volume-fra1-01/dba400:/pg/data
       - /mnt/volume-fra1-dumps:/pginput
 
   www:
