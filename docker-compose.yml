@@ -24,7 +24,7 @@ services:
     container_name: mydbpp
     environment:
       DB_USER: pepper
-      DB_PASSWORD: dbPasswordExample
+      DB_PASSWORD: dbPasswordExampleLong 
       DB_NAME: portaportese
       DB_ENCODING: UTF-8    
       VIRTUAL_HOST: pp200.prv.lan
