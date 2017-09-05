@@ -18,6 +18,11 @@ services:
           - data.portaportese.it
           - datalocal.portaportese.it
           - dataocean.portaportese.it
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
 
   mydbpp:
     build: mydb
@@ -34,6 +39,11 @@ services:
     volumes:
       - /mnt/volume-fra1-01/dbpp:/pg/data
       - /mnt/volume-fra1-dumps:/pginput
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
 
   mydba400:
     build: mydb
@@ -50,6 +60,11 @@ services:
     volumes:
       - /mnt/volume-fra1-01/dba400:/pg/data
       - /mnt/volume-fra1-dumps:/pginput
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
 
   www:
     image: portaportese/ppstart:v1.1
@@ -70,6 +85,11 @@ services:
       - mydbpp
       - mydba400
       - ppws
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
 
   ppws:
     build: myjetty
@@ -89,6 +109,11 @@ services:
       - mydba400
       - myproxy
       - mypostfix
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
 
   mypostfix:
     image: catatnight/postfix
@@ -98,3 +123,8 @@ services:
       smtp_user: ppmailer:ciccio123mail
     ports:
       - 25
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
