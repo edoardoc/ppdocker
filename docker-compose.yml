@@ -15,6 +15,7 @@ services:
     networks:
       default:
         aliases:
+          - wwwocean.portaportese.it
           - data.portaportese.it
           - datalocal.portaportese.it
           - dataocean.portaportese.it
