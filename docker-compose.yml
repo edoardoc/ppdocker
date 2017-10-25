@@ -15,7 +15,6 @@ services:
     networks:
       default:
         aliases:
-          - wwwocean.portaportese.it
           - data.portaportese.it
           - datalocal.portaportese.it
           - dataocean.portaportese.it
@@ -38,8 +37,8 @@ services:
     ports:
       - 5430:5432
     volumes:
-      - /mnt/volume-fra1-01/dbpp:/pg/data
-      - /mnt/volume-fra1-dumps:/pginput
+      - ./Postgres/dbpp:/pg/data
+      - ./Postgres/dumps:/pginput
     logging:
       driver: "json-file"
       options:
@@ -59,8 +58,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /mnt/volume-fra1-01/dba400:/pg/data
-      - /mnt/volume-fra1-dumps:/pginput
+      - ./Postgres/dba400:/pg/data
+      - ./Postgres/dumps:/pginput
     logging:
       driver: "json-file"
       options:
