@@ -1,9 +1,10 @@
 #!/bin/bash
 
-export WEBFOLDER=./rmdtmsoft
 docker-compose down
 docker-compose pull
 docker-compose build
+
+rm ~/ppweb/WEB-INF/init/initdata.sbin
 
 # per far partire anche il www fai semplicemente 
 # docker-compose up -d
