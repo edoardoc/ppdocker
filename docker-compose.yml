@@ -8,7 +8,6 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./rmdtmsoft:/web/static
       - ~/cert:/etc/nginx/certs
       - ~/ppdocker/nginx-vhost.d:/etc/nginx/vhost.d:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -76,6 +75,8 @@ services:
     ports:
       - 80
     volumes:
+      - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
+      - ./rmdtmsoft:/home/ppjr/default-ear/default-war/web/static
       - ~/ppweb:/home/ppjr/default-ear/default-war
     links:
       - "mydbpp:pp200.prv.lan"
