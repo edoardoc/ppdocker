@@ -1,5 +1,5 @@
 #!/bin/bash
-branchina="/dev"
+branchina="/master"
 cd ~/ppweb
 git fetch
 NLINEE="$(git --no-pager diff HEAD..origin$branchina --name-only )"
