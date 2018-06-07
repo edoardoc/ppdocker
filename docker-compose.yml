@@ -75,6 +75,7 @@ services:
     ports:
       - 80
     volumes:
+      - ~/ppweb/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
       - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
       - ./rmdtmsoft:/home/ppjr/default-ear/default-war/web/static
       - ~/ppweb:/home/ppjr/default-ear/default-war
