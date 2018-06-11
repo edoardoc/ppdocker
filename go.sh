@@ -3,12 +3,13 @@
 if [ "$1" == "" ]; then
 	# ATTENZIONE, PER USARE LOCALHOST DEVI VERIFICARE QUALE E'
 	# L'IP CORRENTE!!!
-	myip="$(ipconfig getifaddr en0)"
+	myip="$(ipconfig getifaddr en1)"
 	echo my ip: "${myip}"
 	export WEBFOLDER=./rmdtmsoft
 	export IP_GESTIONALE=${myip}
 	export IP_DBA1=${myip}
 	export IP_DBA2=${myip}
+	telnet $IP_DBA1 5432
 elif [ "$1" == "testdbremoto" ]; then
 	export WEBFOLDER=/home/rmdtmsoft
 	export IP_GESTIONALE=194.242.228.82
@@ -29,9 +30,11 @@ docker-compose build
 docker-compose pull
 docker-compose down
 
+rm ~/ppweb/WEB-INF/init/initdata.sbin
+
 # per far partire anche il www fai semplicemente 
 # docker-compose up -d
-docker-compose up -d ppws
+docker-compose up -d
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
