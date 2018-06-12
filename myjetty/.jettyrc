@@ -1,0 +1,3 @@
+export JETTY_HOME="/opt/jetty"
+export JETTY_CONSOLE="/opt/jetty/logs/jout.log"
+export JAVA_OPTIONS="-Xmx512M -Xms32m"
