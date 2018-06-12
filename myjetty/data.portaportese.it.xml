@@ -18,23 +18,6 @@
     <Set name="copyWebDir">false</Set>
     <Set name="defaultsDescriptor"><SystemProperty name="jetty.home" default="."/>/etc/webdefault.xml</Set>
 
-    <Set name="virtualHosts">
-        <Array type="String">
-            <Item>ppappsrvtest.local.roma.it</Item>
-            <Item>ppappsrv04.inroma.roma.it</Item>
-            <Item>ppappsrv03.inroma.roma.it</Item>
-            <Item>ppappsrv02.inroma.roma.it</Item>
-            <Item>data.portaportese.it</Item>
-        </Array>
-    </Set>
-
-    <!-- disable cookies
-    <Get name="sessionHandler">
-        <Get name="sessionManager">
-            <Set name="usingCookies" type="boolean">false</Set>
-        </Get>
-    </Get>
- -->
     <Get name="securityHandler">
         <Set name="loginService">
             <New class="org.eclipse.jetty.security.HashLoginService">
