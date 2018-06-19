@@ -24,19 +24,17 @@ services:
         max-size: "200M"
         max-file: "4" 
   www:
-    image: portaportese/ppstart:v1.1
+    build: mywww
     container_name: www
-    command: /bin/bash /root/pplaunch
     environment:
         VIRTUAL_HOST: www.portaportese.it, wwwlocal.portaportese.it, testing.portaportese.it
         VIRTUAL_PORT: 80
     ports:
       - 80
     volumes:
-      - /home/pp1logs/:/var/log/
+      - ${LOGFOLDER}:/var/log/
       - ~/ppweb/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
       - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
-      - ./rmdtmsoft:/home/ppjr/default-ear/default-war/web/static
       - ~/ppweb:/home/ppjr/default-ear/default-war
     extra_hosts:
       - "pp200.prv.lan:${IP_GESTIONALE}"
@@ -44,6 +42,7 @@ services:
       - "pp22.prv.lan:${IP_DBA2}"
     depends_on:
         - ppws
+        - mypostfix
     logging:
       driver: "json-file"
       options:
