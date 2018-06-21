@@ -8,6 +8,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - ${WEBFOLDER}:/web/static
       - ~/cert:/etc/nginx/certs
       - ~/ppdocker/nginx-vhost.d:/etc/nginx/vhost.d:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -67,7 +68,7 @@ services:
         max-file: "4"
 
   www:
-    image: portaportese/ppstart:v1.1
+    build: mywww
     container_name: www
     environment:
         VIRTUAL_HOST: www.portaportese.it, wwwlocal.portaportese.it, wwwocean.portaportese.it
