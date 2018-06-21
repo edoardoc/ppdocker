@@ -19,11 +19,11 @@
       <host>mypostfix</host>
       
       <!-- Default username -->
-      <user>ppmailer@mail.portaportese.it</user>
+      <user></user>
       <!-- Default smtp mail server name  -->
       <smtp-host>mypostfix</smtp-host>
       <!-- Default smtp user name -->
-      <smtp-user>ppmailer@mail.portaportese.it</smtp-user>
+      <smtp-user></smtp-user>
       <!-- Default imap mail server name -->
       <imap-host></imap-host>
       <!-- Default imap user name -->
