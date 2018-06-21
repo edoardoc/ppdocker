@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export WEBFOLDER=./rmdtmsoft
+export LOGFOLDER=~/mywwwlogs/
+
+mkdir ${LOGFOLDER}
 mkdir ${LOGFOLDER}httpd
 mkdir ${LOGFOLDER}httpd/logs
 
