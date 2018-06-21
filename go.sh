@@ -1,11 +1,11 @@
 #!/bin/bash
 
 export WEBFOLDER=./rmdtmsoft
-export LOGFOLDER=~/mywwwlogs/
+export LOGFOLDER=~/mywwwlogs
 
 mkdir ${LOGFOLDER}
-mkdir ${LOGFOLDER}httpd
-mkdir ${LOGFOLDER}httpd/logs
+mkdir ${LOGFOLDER}/httpd
+mkdir ${LOGFOLDER}/httpd/logs
 
 # fermo tutto e cancello tutto
 docker stop $(docker ps -aq)
