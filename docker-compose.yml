@@ -15,6 +15,7 @@ services:
     networks:
       default:
         aliases:
+          - portaportese.it
           - www.portaportese.it
           - data.portaportese.it
           - testing.portaportese.it
@@ -27,7 +28,7 @@ services:
     build: mywww
     container_name: www
     environment:
-        VIRTUAL_HOST: www.portaportese.it, wwwlocal.portaportese.it, testing.portaportese.it
+        VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwlocal.portaportese.it, testing.portaportese.it
         VIRTUAL_PORT: 80
     ports:
       - 80
