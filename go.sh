@@ -1,14 +1,25 @@
 #!/bin/bash
 
-docker-compose down
-docker-compose pull
+export WEBFOLDER=./rmdtmsoft
+export LOGFOLDER=~/mywwwlogs/
+
+mkdir ${LOGFOLDER}
+mkdir ${LOGFOLDER}httpd
+mkdir ${LOGFOLDER}httpd/logs
+
+# fermo tutto e cancello tutto
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
 docker-compose build
+docker-compose pull
+docker-compose down
 
 rm ~/ppweb/WEB-INF/init/initdata.sbin
 
 # per far partire anche il www fai semplicemente 
 # docker-compose up -d
-docker-compose up $1
+docker-compose up -d
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
