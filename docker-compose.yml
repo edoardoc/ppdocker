@@ -10,12 +10,13 @@ services:
     volumes:
       - ${WEBFOLDER}:/web/static
       - ~/cert:/etc/nginx/certs
-      - ~/ppdocker/nginx-vhost.d:/etc/nginx/vhost.d:ro
+      - myproxy/nginx-vhost.d:/etc/nginx/vhost.d:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     networks:
       default:
         aliases:
           - www.portaportese.it
+          - wwwocean.portaportese.it
           - data.portaportese.it
           - datalocal.portaportese.it
           - dataocean.portaportese.it
