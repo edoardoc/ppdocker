@@ -34,9 +34,9 @@ services:
       - 80
     volumes:
       - ${LOGFOLDER}:/var/log/
-      - ~/ppweb/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
+      - /home/ppweb/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
       - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
-      - ~/ppweb:/home/ppjr/default-ear/default-war
+      - /home/ppweb:/home/ppjr/default-ear/default-war
     extra_hosts:
       - "pp200.prv.lan:${IP_GESTIONALE}"
       - "pp20.prv.lan:${IP_DBA1}"
