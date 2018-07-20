@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jrun-resources PUBLIC "-//Macromedia Inc.//DTD jrun-resources 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-resources.dtd">
+
+<jrun-resources>
+
+  <!-- ========================================================== -->
+  <!-- These entries are an example of a JavaMail Session         -->
+  <!-- ========================================================== -->
+
+  <mail-session>
+      <!-- JNDI name for this mail session -->
+      <jndi-name>mail/Session</jndi-name>
+      <description></description>
+      
+      <store-protocol>pop</store-protocol>
+      <transport-protocol>smtp</transport-protocol>
+      <!-- Default mail server host name -->
+      <host>mypostfix</host>
+      
+      <!-- Default username -->
+      <user>ppmailer@mail.portaportese.it</user>
+      <!-- Default smtp mail server name  -->
+      <smtp-host>mypostfix</smtp-host>
+      <!-- Default smtp user name -->
+      <smtp-user>ppmailer@mail.portaportese.it</smtp-user>
+      <!-- Default imap mail server name -->
+      <imap-host></imap-host>
+      <!-- Default imap user name -->
+      <imap-user></imap-user>
+      <!-- Default pop3 mail server name -->
+      <pop3-host></pop3-host>
+      <!-- Default pop3 user name -->
+      <pop3-user></pop3-user>
+      <!-- Default sender email addresss -->
+      <from>info@portaportese.it</from>
+      <!-- Enable debug messages (true or false) -->
+      <debug>false</debug>
+  </mail-session>
+
+</jrun-resources>
