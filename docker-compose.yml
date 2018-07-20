@@ -14,92 +14,48 @@ services:
     networks:
       default:
         aliases:
+          - portaportese.it
+          - www.portaportese.it
           - data.portaportese.it
-          - datalocal.portaportese.it
-          - dataocean.portaportese.it
+          - testing.portaportese.it
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4"
-
-  mydbpp:
-    build: mydb
-    container_name: mydbpp
-    environment:
-      DB_USER: pepper
-      DB_PASSWORD: dbPasswordExampleLong 
-      DB_NAME: portaportese
-      DB_ENCODING: UTF-8    
-      VIRTUAL_HOST: pp200.prv.lan
-      VIRTUAL_PORT: 5432
-    ports:
-      - 5430:5432
-    volumes:
-      - ./Postgres/dbpp:/pg/data
-      - ./Postgres/dumps:/pginput
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
-
-  mydba400:
-    build: mydb
-    container_name: mydba400
-    environment:
-        DB_USER: pepper
-        DB_PASSWORD: dbPasswordExample
-        DB_NAME: dba400L1
-        DB_ENCODING: UTF-8    
-        VIRTUAL_HOST: pp20.prv.lan, pp22.prv.lan
-        VIRTUAL_PORT: 5432
-    ports:
-      - 5432:5432
-    volumes:
-      - ./Postgres/dba400:/pg/data
-      - ./Postgres/dumps:/pginput
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
-
+        max-file: "4" 
   www:
-    image: portaportese/ppstart:v1.1
+    build: mywww
     container_name: www
-    command: /bin/bash /root/pplaunch
     environment:
-        VIRTUAL_HOST: www.portaportese.it, wwwlocal.portaportese.it, wwwocean.portaportese.it
+        VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwlocal.portaportese.it, testing.portaportese.it
         VIRTUAL_PORT: 80
     ports:
       - 80
     volumes:
-      - ~/ppweb/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
+      - ${LOGFOLDER}:/var/log/
+      - /home/ppweb/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
       - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
-      - ./rmdtmsoft:/home/ppjr/default-ear/default-war/web/static
-      - ~/ppweb:/home/ppjr/default-ear/default-war
-    links:
-      - "mydbpp:pp200.prv.lan"
-      - "mydba400:pp20.prv.lan"
-      - "mydba400:pp22.prv.lan"
+      - /home/ppweb:/home/ppjr/default-ear/default-war
+    extra_hosts:
+      - "pp200.prv.lan:${IP_GESTIONALE}"
+      - "pp20.prv.lan:${IP_DBA1}"
+      - "pp22.prv.lan:${IP_DBA2}"
     depends_on:
-      - mydbpp
-      - mydba400
-      - ppws
+        - ppws
+        - mypostfix
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4"
+        max-file: "4" 
 
   ppws:
     build: myjetty
     container_name: ppws
-    links:
-      - "mydbpp:pp200.prv.lan"
-      - "mydba400:pp20.prv.lan"
-      - "mydba400:pp22.prv.lan"
+    extra_hosts:
+      - "pp200.prv.lan:${IP_GESTIONALE}"
+      - "pp20.prv.lan:${IP_DBA1}"
+      - "pp22.prv.lan:${IP_DBA2}"
     environment:
         HTTPS_METHOD: noredirect
         VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it, dataocean.portaportese.it
@@ -107,15 +63,13 @@ services:
     ports:
       - 8080
     depends_on:
-      - mydbpp
-      - mydba400
-      - myproxy
-      - mypostfix
+        - myproxy
+        - mypostfix
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4"
+        max-file: "4" 
 
   mypostfix:
     image: catatnight/postfix
@@ -124,9 +78,9 @@ services:
       maildomain: mail.portaportese.it
       smtp_user: ppmailer:ciccio123mail
     ports:
-      - 25
+        - 25
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4"
+        max-file: "4" 
