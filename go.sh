@@ -1,23 +1,23 @@
 #!/bin/bash
 
 set -a
-source .env
+source .env"$1"
 
 mkdir ${LOGFOLDER}
 mkdir ${LOGFOLDER}/httpd
 mkdir ${LOGFOLDER}/httpd/logs
 
+
 # fermo tutto e cancello tutto
-#docker stop $(docker ps -aq)
-#docker rm $(docker ps -aq)
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
 
-docker-compose build
 docker-compose pull
-docker-compose down
+docker-compose build
 
-rm ~/ppweb/WEB-INF/init/initdata.sbin
+rm ${PPFOLDER}/WEB-INF/init/initdata.sbin
 
-docker-compose up -d
+docker-compose up
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost
