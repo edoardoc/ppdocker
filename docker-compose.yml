@@ -1,6 +1,5 @@
 version: '2'
 services:
-
   myproxy:
     build: myproxy
     container_name: ppproxy
@@ -15,53 +14,13 @@ services:
     networks:
       default:
         aliases:
+          - portaportese.it
           - www.portaportese.it
-          - wwwocean.portaportese.it
           - data.portaportese.it
-          - datalocal.portaportese.it
+          - wwwocean.portaportese.it
           - dataocean.portaportese.it
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
-
-  mydbpp:
-    build: mydb
-    container_name: mydbpp
-    environment:
-      DB_USER: pepper
-      DB_PASSWORD: dbPasswordExampleLong 
-      DB_NAME: portaportese
-      DB_ENCODING: UTF-8    
-      VIRTUAL_HOST: pp200.prv.lan
-      VIRTUAL_PORT: 5432
-    ports:
-      - 5430:5432
-    volumes:
-      - ./Postgres/dbpp:/pg/data
-      - ./Postgres/dumps:/pginput
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
-
-  mydba400:
-    build: mydb
-    container_name: mydba400
-    environment:
-        DB_USER: pepper
-        DB_PASSWORD: dbPasswordExample
-        DB_NAME: dba400L1
-        DB_ENCODING: UTF-8    
-        VIRTUAL_HOST: pp20.prv.lan, pp22.prv.lan
-        VIRTUAL_PORT: 5432
-    ports:
-      - 5432:5432
-    volumes:
-      - ./Postgres/dba400:/pg/data
-      - ./Postgres/dumps:/pginput
+          - wwwlocal.portaportese.it
+          - datalocal.portaportese.it
     logging:
       driver: "json-file"
       options:
@@ -72,24 +31,15 @@ services:
     build: mywww
     container_name: www
     environment:
-        VIRTUAL_HOST: www.portaportese.it, wwwlocal.portaportese.it, wwwocean.portaportese.it
+        VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwlocal.portaportese.it
         VIRTUAL_PORT: 80
     ports:
       - 80
     volumes:
       - ${LOGFOLDER}:/var/log/
-      - ~/ppweb/WEB-INF/ocean.httpd.conf:/etc/httpd/conf/httpd.conf
+      - ${PPFOLDER}/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
       - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
-      - ~/ppweb:/home/ppjr/default-ear/default-war
-    links:
-      - "mydbpp:pp200.prv.lan"
-      - "mydba400:pp20.prv.lan"
-      - "mydba400:pp22.prv.lan"
-    depends_on:
-      - mydbpp
-      - mydba400
-      - ppws
-      - mypostfix
+      - ${PPFOLDER}:/home/ppjr/default-ear/default-war
     logging:
       driver: "json-file"
       options:
@@ -110,8 +60,6 @@ services:
     ports:
       - 8080
     depends_on:
-      - mydbpp
-      - mydba400
       - myproxy
       - mypostfix
     logging:
