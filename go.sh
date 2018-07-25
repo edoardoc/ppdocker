@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -a
-source .env"$1"
+source .env."$1"
 
 mkdir ${LOGFOLDER}
 mkdir ${LOGFOLDER}/httpd
@@ -17,7 +17,7 @@ docker-compose build
 
 rm ${PPFOLDER}/WEB-INF/init/initdata.sbin
 
-docker-compose up
+docker-compose -f docker-compose.yml -f docker-compose."$1".yml up -d
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost

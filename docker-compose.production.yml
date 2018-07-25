@@ -8,3 +8,8 @@ services:
     depends_on:
       - ppws
       - mypostfix
+  ppws:
+    extra_hosts:
+      - "pp200.prv.lan:${IP_GESTIONALE}"
+      - "pp20.prv.lan:${IP_DBA1}"
+      - "pp22.prv.lan:${IP_DBA2}"

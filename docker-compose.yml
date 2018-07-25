@@ -49,10 +49,6 @@ services:
   ppws:
     build: myjetty
     container_name: ppws
-    links:
-      - "mydbpp:pp200.prv.lan"
-      - "mydba400:pp20.prv.lan"
-      - "mydba400:pp22.prv.lan"
     environment:
         HTTPS_METHOD: noredirect
         VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it, dataocean.portaportese.it
