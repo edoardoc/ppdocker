@@ -54,7 +54,12 @@ services:
       - mypostfix
 
   ppws:
+    links:
+      - "mydbpp:pp200.prv.lan"
+      - "mydba400:pp20.prv.lan"
+      - "mydba400:pp22.prv.lan"
     depends_on:
+      - mypostfix
       - mydbpp
       - mydba400
 
