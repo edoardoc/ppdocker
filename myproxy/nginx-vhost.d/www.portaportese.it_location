@@ -1,6 +1,4 @@
 location  /blog {
-  rewrite /blog/(.*) /$1  break;
-  proxy_pass         https://blogpp.insistema.com/blog/;
-  proxy_redirect     off;
-  proxy_set_header   Host $host;
+  proxy_pass            https://blogpp.insistema.com/blog/;
+  proxy_set_header      Host blogpp.insistema.com;
 }
