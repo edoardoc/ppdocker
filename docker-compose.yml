@@ -4,6 +4,10 @@ services:
   importmediavacanze:
     build: importmediavacanze
     container_name: importmediavacanze
+    extra_hosts:
+      - "pp200.prv.lan:${IP_GESTIONALE}"
+      - "pp20.prv.lan:${IP_DBA1}"
+      - "pp22.prv.lan:${IP_DBA2}"
     logging:
       driver: "json-file"
       options:
