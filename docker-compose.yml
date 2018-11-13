@@ -1,6 +1,14 @@
 version: '2'
 services:
 
+  importmediavacanze:
+    build: importmediavacanze
+    container_name: importmediavacanze
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4" 
   myproxy:
     build: myproxy
     container_name: ppproxy
