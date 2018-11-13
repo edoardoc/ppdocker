@@ -1,9 +1,9 @@
 version: '2'
 services:
 
-  importmediavacanze:
-    build: importmediavacanze
-    container_name: importmediavacanze
+  utilities:
+    build: utilities
+    container_name: utilities
     extra_hosts:
       - "pp200.prv.lan:${IP_GESTIONALE}"
       - "pp20.prv.lan:${IP_DBA1}"
