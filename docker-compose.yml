@@ -1,6 +1,20 @@
 version: '2'
 services:
 
+  utilities:
+    build: utilities
+    container_name: utilities
+    environment:
+      - "WHICH_COMMIT:${WHICH_COMMIT}"
+    extra_hosts:
+      - "pp200.prv.lan:${IP_GESTIONALE}"
+      - "pp20.prv.lan:${IP_DBA1}"
+      - "pp22.prv.lan:${IP_DBA2}"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4" 
   myproxy:
     build: myproxy
     container_name: ppproxy
