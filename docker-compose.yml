@@ -1,6 +1,7 @@
 version: '2'
-services:
+ARG WHICH_COMMIT=1f1d75306094
 
+services:
   utilities:
     build: utilities
     container_name: utilities
