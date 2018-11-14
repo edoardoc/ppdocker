@@ -45,7 +45,9 @@ wget -nc --user=ridleys@gmail.com --password=KQk-uPF-AL8-MVq https://bitbucket.o
 
 echo build phase
 # fermo tutto e cancello tutto
-docker-compose build --build-arg WHICH_COMMIT=${WHICH_COMMIT} $2
+# build arg non si puo' usare
+#docker-compose build --build-arg WHICH_COMMIT=${WHICH_COMMIT} $2
+docker-compose build $2
 
 echo run phase
 TODAY=`date +%Y%m%d-%H%M`
