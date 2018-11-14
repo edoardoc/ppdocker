@@ -41,12 +41,12 @@ mkdir ${LOGFOLDER}httpd
 mkdir ${LOGFOLDER}utilities
 mkdir ${LOGFOLDER}utilities/gmmvclogs
 
-
 wget -nc --user=ridleys@gmail.com --password=KQk-uPF-AL8-MVq https://bitbucket.org/eddyce/pputilities/get/${WHICH_COMMIT}.zip -P utilities/
 
+echo build phase
 # fermo tutto e cancello tutto
 docker-compose build --build-arg WHICH_COMMIT=${WHICH_COMMIT} $2
-#docker-compose stop $2
 
+echo run phase
 TODAY=`date +%Y%m%d-%H%M`
 docker-compose run $2 sh mediavacanze.sh dbpp ./pp.json  2>&1 | tee ${LOGFOLDER}utilities/gmmvclogs/$2-${TODAY}.log
