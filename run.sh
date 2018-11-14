@@ -1,6 +1,6 @@
 #!/bin/bash
 #-------------------------------
-export WHICH_COMMIT=1f1d75306094
+export WHICH_COMMIT=430df2ef603f
 
 if [ "$1" == "" ]; then
 	echo "devi specificare anche il servizio che vuoi lanciare!"
@@ -50,5 +50,7 @@ echo build phase
 docker-compose build $2
 
 echo run phase
-TODAY=`date +%Y%m%d-%H%M`
-docker-compose run $2 sh mediavacanze.sh dbpp ./pp.json  2>&1 | tee ${LOGFOLDER}utilities/gmmvclogs/$2-${TODAY}.log
+# PRODUCTION
+#TODAY=`date +%Y%m%d-%H%M`
+#docker-compose run $2 sh mediavacanze.sh dbpp ./pp.json  2>&1 | tee ${LOGFOLDER}utilities/gmmvclogs/$2-${TODAY}.log
+docker-compose run $2 sh mediavacanze.sh dbppTEST ./pp.json
