@@ -1,12 +1,8 @@
 version: '2'
-ARG WHICH_COMMIT=1f1d75306094
-
 services:
   utilities:
     build: utilities
     container_name: utilities
-    environment:
-      - "WHICH_COMMIT:${WHICH_COMMIT}"
     extra_hosts:
       - "pp200.prv.lan:${IP_GESTIONALE}"
       - "pp20.prv.lan:${IP_DBA1}"
