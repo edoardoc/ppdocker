@@ -1,0 +1,4 @@
+location  /blog {
+  proxy_pass            https://blogpp.insistema.com/blog/;
+  proxy_set_header      Host blogpp.insistema.com;
+}
