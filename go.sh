@@ -17,7 +17,7 @@ docker-compose build
 
 rm ${PPFOLDER}/WEB-INF/init/initdata.sbin
 
-docker-compose -f docker-compose.yml -f docker-compose."$1".yml up -d
+docker-compose -f docker-compose.yml -f docker-compose."$1".yml up $2
 
 # TEST:
 # curl -H "Host: data.portaportese.it" localhost

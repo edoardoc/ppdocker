@@ -38,7 +38,7 @@ services:
     volumes:
       - ${LOGFOLDER}:/var/log/
       - ${PPFOLDER}/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
-      - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
+      - /mnt/volume-fra1-01/dump:/home/ppjr/default-ear/default-war/giornale/pdf
       - ${PPFOLDER}:/home/ppjr/default-ear/default-war
     logging:
       driver: "json-file"
