@@ -83,14 +83,14 @@ want to support, as well as responding via the send API.
 // Handles messages events
 function handleMessage(sender_psid, received_message, thebody) {
   let response;
-  getUserinfo(sender_psid)
+  nome = getUserinfo(sender_psid)
 
   // Checks if the message contains text
   if (received_message.text) {    
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
-      "text": `Benvenuto "${thebody.firstName}" hai inviato questo messaggio: "${received_message.text}". ora prova ad inviare un immagine!`
+      "text": `Benvenuto "${nome}" hai inviato questo messaggio: "${received_message.text}". ora prova ad inviare un immagine!`
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
@@ -156,8 +156,9 @@ function getUserinfo(sender_psid) {
   }, (err, res, body) => {
     if (!err) {
       console.log('user received, ')
-      console.log(body.firstName)
+      console.log(body.first_name)
       console.log(body)      
+      return body.first_name;
     } else {
       console.error("Unable to get user info: " + err);
     }
