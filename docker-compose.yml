@@ -61,9 +61,8 @@ services:
       # da togliere in produzione
       #- 9229:9229
     command:
-      node index.js 
       # da togliere in produzione
-      # nodemon --inspect=0.0.0.0 index.js
+      nodemon --inspect=0.0.0.0 index.js
     depends_on:
       - myproxy
       
