@@ -37,7 +37,7 @@ app.post("/webhook", (req, res) => {
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
       if (webhook_event.message) {
-        handleMessage(sender_psid, webhook_event.message, body);        
+        handleMessage(sender_psid, webhook_event.message);        
       } else if (webhook_event.postback) {
         handlePostback(sender_psid, webhook_event.postback);
       }
@@ -81,9 +81,28 @@ want to support, as well as responding via the send API.
 */
 
 // Handles messages events
-function handleMessage(sender_psid, received_message, thebody) {
+function handleMessage(sender_psid, received_message) {
   let response;
-  let nome = getUserinfo(sender_psid)
+  let nome = "n/a"
+
+  // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v2.6/" + sender_psid,
+    "qs": { "access_token": PAGE_ACCESS_TOKEN },
+    "method": "GET",
+    "json": "true",
+    "time": "true"
+  }, (err, res, body) => {
+    if (!err) {
+      console.log('user received, ')
+      console.log(body.first_name)
+      console.log(body)      
+      nome = body.first_name;
+    } else {
+      console.error("Unable to get user info: " + err);
+    }
+  }); 
+
 
   // Checks if the message contains text
   if (received_message.text) {    
@@ -141,28 +160,6 @@ function handlePostback(sender_psid, received_postback) {
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
-}
-
-
-function getUserinfo(sender_psid) {
-
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/" + sender_psid,
-    "qs": { "access_token": PAGE_ACCESS_TOKEN },
-    "method": "GET",
-    "json": "true",
-    "time": "true"
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('user received, ')
-      console.log(body.first_name)
-      console.log(body)      
-      return body.first_name;
-    } else {
-      console.error("Unable to get user info: " + err);
-    }
-  }); 
 }
 
 // Sends response messages via the Send API
