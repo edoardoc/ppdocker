@@ -97,7 +97,7 @@ function handleMessage(sender_psid, received_message) {
       console.log('user received, ')
       console.log(body.first_name)
       console.log(body)      
-      nome = body.first_name;
+      this.nome = body.first_name;
     } else {
       console.error("Unable to get user info: " + err);
     }
