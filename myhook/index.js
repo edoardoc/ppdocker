@@ -83,7 +83,7 @@ want to support, as well as responding via the send API.
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  let nome = "n/a"
+  var nome;
 
   // Send the HTTP request to the Messenger Platform
   request({
@@ -94,55 +94,56 @@ function handleMessage(sender_psid, received_message) {
     "time": "true"
   }, (err, res, body) => {
     if (!err) {
-      console.log('user received, ')
-      console.log(body.first_name)
-      console.log(body)      
-      this.nome = body.first_name;
+      nome = body.first_name;
+      console.error("user info: " + nome);
+
+
+      // Checks if the message contains text
+      if (received_message.text) {    
+        // Create the payload for a basic text message, which
+        // will be added to the body of our request to the Send API
+        response = {
+          "text": `Benvenuto "${nome.text}" hai inviato questo messaggio: "${received_message.text}". ora prova ad inviare un immagine!`
+        }
+      } else if (received_message.attachments) {
+        // Get the URL of the message attachment
+        let attachment_url = received_message.attachments[0].payload.url;
+        response = {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [{
+                "title": "e' questa l'immagine che hai inviato?",
+                "subtitle": "Premi un pulsante per rispondere.",
+                "image_url": attachment_url,
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Si!",
+                    "payload": "Si",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "No!",
+                    "payload": "no",
+                  }
+                ],
+              }]
+            }
+          }
+        }
+      } 
+      
+      // Send the response message
+      callSendAPI(sender_psid, response);    
+
+
+
     } else {
       console.error("Unable to get user info: " + err);
     }
-  }); 
-
-
-  // Checks if the message contains text
-  if (received_message.text) {    
-    // Create the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
-    response = {
-      "text": `Benvenuto "${nome}" hai inviato questo messaggio: "${received_message.text}". ora prova ad inviare un immagine!`
-    }
-  } else if (received_message.attachments) {
-    // Get the URL of the message attachment
-    let attachment_url = received_message.attachments[0].payload.url;
-    response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "e' questa l'immagine che hai inviato?",
-            "subtitle": "Premi un pulsante per rispondere.",
-            "image_url": attachment_url,
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "Si!",
-                "payload": "Si",
-              },
-              {
-                "type": "postback",
-                "title": "No!",
-                "payload": "no",
-              }
-            ],
-          }]
-        }
-      }
-    }
-  } 
-  
-  // Send the response message
-  callSendAPI(sender_psid, response);    
+  });
 }
 
 // Handles messaging_postbacks events
