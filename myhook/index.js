@@ -83,7 +83,7 @@ want to support, as well as responding via the send API.
 // Handles messages events
 function handleMessage(sender_psid, received_message, thebody) {
   let response;
-  nome = getUserinfo(sender_psid)
+  let nome = getUserinfo(sender_psid)
 
   // Checks if the message contains text
   if (received_message.text) {    
