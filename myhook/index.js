@@ -90,7 +90,7 @@ function handleMessage(sender_psid, received_message, thebody) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
-      "text": `Benvenuto "${thebody.firstName}" hai inviato questo messaggio: "${received_message.text}". Now send me an attachment!`
+      "text": `Benvenuto "${thebody.firstName}" hai inviato questo messaggio: "${received_message.text}". ora prova ad inviare un immagine!`
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
@@ -101,7 +101,7 @@ function handleMessage(sender_psid, received_message, thebody) {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "questa e' l'immagine giusta?",
+            "title": "e' questa l'immagine che hai inviato?",
             "subtitle": "Premi un pulsante per rispondere.",
             "image_url": attachment_url,
             "buttons": [
@@ -156,8 +156,8 @@ function getUserinfo(sender_psid) {
   }, (err, res, body) => {
     if (!err) {
       console.log('user received, ')
-      console.log(res.firstName)
-      console.log(res.toJSON)      
+      console.log(body.firstName)
+      console.log(body)      
     } else {
       console.error("Unable to get user info: " + err);
     }
