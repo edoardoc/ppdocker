@@ -12,6 +12,8 @@ const express = require("express"),
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log("webhook is listening"));
 
+setGreeting();
+
 // Creates the endpoint for our webhook
 app.post("/webhook", (req, res) => {
   // Parse the request body from the POST
@@ -177,6 +179,34 @@ function callSendAPI(sender_psid, response) {
       console.log('message sent!')
     } else {
       console.error("Unable to send message:" + err);
+    }
+  }); 
+}
+
+function setGreeting() {
+  let request_body = {
+    "greeting": [
+      {
+        "locale":"default",
+        "text":"Ciao, benvenuto al bot di portaportese!" 
+      }, {
+        "locale":"en_US",
+        "text":"Welcome to ppbot!"
+      }
+    ]  
+  }
+
+  // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v2.6/me/messenger_profile",
+    "qs": { "access_token": PAGE_ACCESS_TOKEN },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+      console.log('setGreeting ok!')
+    } else {
+      console.error("Unable to setGreeting, message:" + err);
     }
   }); 
 }
