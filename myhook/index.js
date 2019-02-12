@@ -83,6 +83,8 @@ want to support, as well as responding via the send API.
 // Handles messages events
 function handleMessage(sender_psid, received_message, thebody) {
   let response;
+  getUserinfo(sender_psid)
+  
   // Checks if the message contains text
   if (received_message.text) {    
     // Create the payload for a basic text message, which
@@ -142,6 +144,32 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 
+function getUserinfo(sender_psid) {
+  // Construct the message body
+  let request_body = {
+    "recipient": {
+      "id": sender_psid
+    },
+    "message": response
+  }
+
+  // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v2.6/" + sender_psid,
+    "qs": { "access_token": PAGE_ACCESS_TOKEN },
+    "method": "GET",
+    "json": "true",
+    "time": "true"
+  }, (err, res, body) => {
+    if (!err) {
+      console.log('user received, ')
+      console.log(res.firstName)
+      console.log(res.toJSON)      
+    } else {
+      console.error("Unable to get user info: " + err);
+    }
+  }); 
+}
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
   // Construct the message body
