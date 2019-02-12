@@ -17,6 +17,7 @@ services:
           - portaportese.it
           - www.portaportese.it
           - data.portaportese.it
+          - hookocean.portaportese.it
           - wwwocean.portaportese.it
           - dataocean.portaportese.it
           - wwwlocal.portaportese.it
