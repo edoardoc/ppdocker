@@ -87,7 +87,7 @@ function handleMessage(sender_psid, received_message) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
+      "text": `Benvenuto {{user_first_name}} hai inviato questo messaggio: "${received_message.text}". Now send me an attachment!`
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
@@ -98,14 +98,14 @@ function handleMessage(sender_psid, received_message) {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
+            "title": "questa e' l'immagine giusta?",
+            "subtitle": "Premi un pulsante per rispondere.",
             "image_url": attachment_url,
             "buttons": [
               {
                 "type": "postback",
-                "title": "Yes!",
-                "payload": "yes",
+                "title": "Si!",
+                "payload": "Si",
               },
               {
                 "type": "postback",
@@ -131,10 +131,10 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
+  if (payload === 'si') {
+    response = { "text": "Grazie!" }
   } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
+    response = { "text": "Ouos, prova ad inviare un'altra immagine..." }
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
