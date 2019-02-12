@@ -83,7 +83,6 @@ want to support, as well as responding via the send API.
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  var nome;
 
   // Send the HTTP request to the Messenger Platform
   request({
@@ -94,16 +93,14 @@ function handleMessage(sender_psid, received_message) {
     "time": "true"
   }, (err, res, body) => {
     if (!err) {
-      nome = body.first_name;
-      console.error("user info: " + nome);
-
+      console.error("user info: " + body.first_name);
 
       // Checks if the message contains text
       if (received_message.text) {    
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = {
-          "text": `Benvenuto "${nome.text}" hai inviato questo messaggio: "${received_message.text}". ora prova ad inviare un immagine!`
+          "text": `Benvenuto "${body.first_name}" hai inviato questo messaggio: "${received_message.text}". ora prova ad inviare un immagine!`
         }
       } else if (received_message.attachments) {
         // Get the URL of the message attachment
@@ -134,11 +131,7 @@ function handleMessage(sender_psid, received_message) {
           }
         }
       } 
-      
-      // Send the response message
-      callSendAPI(sender_psid, response);    
-
-
+      callSendAPI(sender_psid, response); // Send the response message
 
     } else {
       console.error("Unable to get user info: " + err);
