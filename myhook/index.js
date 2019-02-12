@@ -87,7 +87,7 @@ function handleMessage(sender_psid, received_message) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
-      "text": `Benvenuto {{user_first_name}} hai inviato questo messaggio: "${received_message.text}". Now send me an attachment!`
+      "text": `Benvenuto {{default_user_name}} hai inviato questo messaggio: "${received_message.text}". Now send me an attachment!`
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
@@ -134,7 +134,7 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'si') {
     response = { "text": "Grazie!" }
   } else if (payload === 'no') {
-    response = { "text": "Ouos, prova ad inviare un'altra immagine..." }
+    response = { "text": "Oups, prova ad inviare un'altra immagine..." }
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
