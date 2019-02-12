@@ -150,7 +150,7 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'si') {
     response = { "text": "Grazie per la collaborazione :)" }
   } else if (payload === 'no') {
-    response = { "text": "Oups, prova ad inviare un'altra immagine..." }
+    response = { "text": "Oups :/ , prova ad inviare un'altra immagine..." }
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
