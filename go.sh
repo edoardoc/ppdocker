@@ -24,3 +24,4 @@ docker-compose -f docker-compose.yml -f docker-compose."$1".yml up $2
 # curl -H "Host: datalocal.portaportese.it" localhost
 # curl -H "Host: www.portaportese.it" localhost
 # curl -H "Host: wwwlocal.portaportese.it" localhost
+    

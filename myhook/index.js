@@ -80,7 +80,7 @@ app.get("/webhook", (req, res) => {
 function handleMessage(sender_psid, received_message) {
   let response;
 
-  // Send the HTTP request to the Messenger Platform
+  // get user info as in https://developers.facebook.com/docs/graph-api/reference/user
   request({
     "uri": "https://graph.facebook.com/v2.6/" + sender_psid,
     "qs": { "access_token": PAGE_ACCESS_TOKEN },
