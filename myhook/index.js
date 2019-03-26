@@ -6,13 +6,13 @@ const request = require('request');
 
 // Imports dependencies and set up http server
 const express = require("express"),
-  bodyParser = require("body-parser"),
-  app = express().use(bodyParser.json()); // creates express http server
+      bodyParser = require("body-parser"),
+      app = express().use(bodyParser.json()); // creates express http server
 
-// Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log("webhook is listening"));
+app.listen(process.env.PORT || 1337, () => console.log("webhook is listening"));  // Sets server port and logs message on success
 
 setGreeting();
+setPersistentMenu();
 
 // Creates the endpoint for our webhook
 app.post("/webhook", (req, res) => {
@@ -77,12 +77,6 @@ app.get("/webhook", (req, res) => {
   }
 });
 
-/*
-three functions that will handle the incoming webhook event types we 
-want to support, as well as responding via the send API.
-*/
-
-// Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
 
@@ -183,30 +177,151 @@ function callSendAPI(sender_psid, response) {
   }); 
 }
 
-function setGreeting() {
-  let request_body = {
-    "greeting": [
-      {
-        "locale":"default",
-        "text":"Ciao, benvenuto al bot di portaportese!" 
-      }, {
-        "locale":"en_US",
-        "text":"Welcome to ppbot!"
-      }
-    ]  
-  }
+function setGetStarted() {
+	request(
+		{
+			uri: "https://graph.facebook.com/v2.6/me/messenger_profile",
+			qs: { access_token: PAGE_ACCESS_TOKEN },
+			method: "POST",
+			json: { "get_started": {"payload": "<postback_payload>"} }
+		},
+		(err, res, body) => {
+			if (!err) {
+				console.log(`get Started button up`);
+			} else {
+				console.error("unable to set Started button:" + err);
+			}
+		}
+	);
+}
 
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messenger_profile",
-    "qs": { "access_token": PAGE_ACCESS_TOKEN },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('setGreeting ok!')
-    } else {
-      console.error("Unable to setGreeting, message:" + err);
-    }
-  }); 
+/*
+
+Do consider your greeting an introduction and a summary of your experience. Greetings have a 160 character maximum, so keep it concise.
+Do communicate your main functionality. Context helps people understand how to interact with you and sets expectations about your capabilities.
+Don’t treat your greeting like an instructional manual. Because your greeting disappears, use your actual messages to introduce specific functionality and commands.
+Don't use excessive text formatting (ex: spacing, punctuation, returns) in your greeting so you can make the most of the character limit.
+
+
+*/
+function setGreeting() {
+	request(
+		{
+			uri: "https://graph.facebook.com/v2.6/me/messenger_profile",
+			qs: { access_token: PAGE_ACCESS_TOKEN },
+			method: "POST",
+			json: { 
+				"greeting": [
+					{
+						"locale": "default",
+						"text": "(ld) Welcome {{user_first_name}} {{user_last_name}} {{user_full_name}}"
+					},
+					{
+						"locale": "it_IT",
+						"text": "Benvenuto {{user_full_name}}!!"
+					}
+				]
+			}
+		},
+		(err, res, body) => {
+			if (!err) {
+				console.log(`greeting msg up`);
+			} else {
+				console.error("unable to set greeting msg:" + err);
+			}
+		}
+	);
+}
+
+function setPersistentMenu() {
+	request(
+		{
+			uri: "https://graph.facebook.com/v2.6/me/messenger_profile",
+			qs: { access_token: PAGE_ACCESS_TOKEN },
+			method: "POST",
+			json: {
+				"persistent_menu":[
+					{
+						"locale":"default",
+						//"composer_input_disabled": true,
+						"call_to_actions":[
+							{
+								"title":"Mio Portaportese",
+								"type":"nested",
+								"call_to_actions":[
+									{
+                    "title":"Guarda gli annunci online",
+                    "type":"nested",
+                    "call_to_actions":[
+                      {
+                        "title":"Cancella un annuncio",
+                        "type":"postback",
+                        "payload":"DEL_ANNUNCIO_PL"
+                      },
+                      {
+                        "title":"Conferma un annuncio",
+                        "type":"postback",
+                        "payload":"PAYBILL_PL"
+                      },
+                      {
+                        "title":"Metti un annuncio in evidenza",
+                        "type":"postback",
+                        "payload":"HL_ANNUNCIO_PL"
+                      }
+                    ]
+									},
+									{
+										"title":"Pay Bill",
+										"type":"postback",
+										"payload":"PAYBILL_PL"
+									},
+									{
+										"title":"History",
+										"type":"postback",
+										"payload":"HISTORY_PAYLOAD"
+									}
+								]
+							},[
+								{ 
+									"title":"Restart",
+									"type":"postback",
+									"payload":"STAGE_RESTART_PL"
+								},
+								{
+									"type":"web_url",
+									"title":"Latest News",
+									"url":"http://www.messenger.com/",
+									"webview_height_ratio":"full"
+								},
+								{
+									"title":"About Portaportese bot",
+									"type":"postback",
+									"payload":"ABOUT_PL"
+								}
+
+								]
+						]
+					},
+					{
+						"locale":"en_US",
+						//"composer_input_disabled":false,
+						"call_to_actions":[
+							{
+								"title":"Pay Bill",
+								"type":"postback",
+								"payload":"PAYBILL_PAYLOAD"
+							}
+						]    
+					}
+				]
+			}
+		},
+		(err, res, body) => {
+			if (!err) {
+				console.log(`persistent menu up`);
+			} else {
+				console.error("unable to set persistent menu:" + err);
+			}
+		}
+	);
 }
