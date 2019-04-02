@@ -40,5 +40,5 @@ mkdir ${LOGFOLDER}httpd/logs
 docker-compose build $2
 docker-compose stop $2
 
-docker-compose up $2
+docker-compose up $3 $2
 
