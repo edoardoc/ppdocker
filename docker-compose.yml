@@ -1,19 +1,5 @@
 version: '2'
 services:
-  utilities:
-    build: utilities
-    container_name: utilities
-    volumes:
-      - /home/gestionaleauto:/files_gestionale_auto
-    extra_hosts:
-      - "pp200.prv.lan:${IP_GESTIONALE}"
-      - "pp20.prv.lan:${IP_DBA1}"
-      - "pp22.prv.lan:${IP_DBA2}"
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4" 
   myproxy:
     build: myproxy
     container_name: ppproxy
@@ -21,6 +7,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - ${WEBFOLDER}:/web/static
       - ~/cert:/etc/nginx/certs
       - ~/ppdocker/myproxy/nginx-vhost.d:/etc/nginx/vhost.d:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -30,45 +17,58 @@ services:
           - portaportese.it
           - www.portaportese.it
           - data.portaportese.it
-          - testing.portaportese.it
+          - hookocean.portaportese.it
+          - wwwocean.portaportese.it
+          - dataocean.portaportese.it
+          - wwwlocal.portaportese.it
+          - datalocal.portaportese.it
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4" 
+        max-file: "4"
+
   www:
     build: mywww
     container_name: www
     environment:
-        VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwlocal.portaportese.it, testing.portaportese.it
+        VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwlocal.portaportese.it 
         VIRTUAL_PORT: 80
     ports:
       - 80
     volumes:
       - ${LOGFOLDER}:/var/log/
       - ${PPFOLDER}/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
-      - ./pdfdelgiornale:/home/ppjr/default-ear/default-war/giornale/pdf
+      - /mnt/volume-fra1-01/dump:/home/ppjr/default-ear/default-war/giornale/pdf
       - ${PPFOLDER}:/home/ppjr/default-ear/default-war
-    extra_hosts:
-      - "pp200.prv.lan:${IP_GESTIONALE}"
-      - "pp20.prv.lan:${IP_DBA1}"
-      - "pp22.prv.lan:${IP_DBA2}"
-    depends_on:
-        - ppws
-        - mypostfix
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4" 
+        max-file: "4"
 
+  webhook-service:
+    build: myhook
+    container_name: webhook-service
+    environment:
+        VIRTUAL_HOST: hookocean.portaportese.it 
+    volumes:
+      - ./myhook:/usr/src/app
+      - /usr/src/app/node_modules
+    #ports:
+      # da togliere in produzione
+      #- 3000:3000
+      # da togliere in produzione
+      #- 9229:9229
+    command:
+      # da togliere in produzione
+      nodemon --inspect=0.0.0.0 index.js
+    depends_on:
+      - myproxy
+      
   ppws:
     build: myjetty
     container_name: ppws
-    extra_hosts:
-      - "pp200.prv.lan:${IP_GESTIONALE}"
-      - "pp20.prv.lan:${IP_DBA1}"
-      - "pp22.prv.lan:${IP_DBA2}"
     environment:
         HTTPS_METHOD: noredirect
         VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it, dataocean.portaportese.it
@@ -76,13 +76,13 @@ services:
     ports:
       - 8080
     depends_on:
-        - myproxy
-        - mypostfix
+      - myproxy
+      - mypostfix
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4" 
+        max-file: "4"
 
   mypostfix:
     image: catatnight/postfix
@@ -91,9 +91,9 @@ services:
       maildomain: mail.portaportese.it
       smtp_user: ppmailer:ciccio123mail
     ports:
-        - 25
+      - 25
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
-        max-file: "4" 
+        max-file: "4"

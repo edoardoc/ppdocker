@@ -1,0 +1,22 @@
+from https://wiki.vpsget.com/index.php/Install_mod_rpaf_on_Centos
+
+
+Install mod rpaf on Centos
+Download
+cd /usr/local/src
+wget http://mirror.trouble-free.net/sources/mod_rpaf-0.6.tar.gz
+tar xzvf mod_rpaf-0.6.tar.gz
+cd mod_rpaf-0.6
+
+install
+yum localinstall http://y-ken.github.com/package/centos/6/x86_64/mod_rpaf-fork-0.6-5.el6.x86_64.rpm
+yum install httpd-devel
+apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
+
+
+Check config file. For example /etc/httpd/conf.d/rpaf.conf
+LoadModule rpaf_module modules/mod_rpaf-2.0.so
+RPAFenable On
+RPAFsethostname On
+RPAFproxy_ips 217.23.9.246
+RPAFheader X-Real-IP
