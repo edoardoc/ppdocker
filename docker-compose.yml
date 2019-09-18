@@ -4,6 +4,7 @@ services:
     build: myphpfpm
     volumes:
       - ${WEBFOLDER2}:/var/www/mainservice
+      - ./myphpfpm/php.ini:/usr/local/etc/php/php.ini
       - ${LOGFOLDER}:/var/log
     depends_on:
       - mydb
@@ -20,64 +21,3 @@ services:
 
   mydb:
     build: mydb
-      
-  myproxy:
-    build: myproxy
-    container_name: ppproxy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ${WEBFOLDER}:/web/static
-      - ~/cert:/etc/nginx/certs
-      - ~/ppdocker/myproxy/nginx-vhost.d:/etc/nginx/vhost.d:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    networks:
-      default:
-        aliases:
-          - portaportese.it
-          - www.portaportese.it
-          - data.portaportese.it
-          - hookocean.portaportese.it
-          - wwwocean.portaportese.it
-          - dataocean.portaportese.it
-          - wwwlocal.portaportese.it
-          - datalocal.portaportese.it
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
-
-  webhook-service:
-    build: myhook
-    container_name: webhook-service
-    environment:
-        VIRTUAL_HOST: hookocean.portaportese.it 
-    volumes:
-      - ./myhook:/usr/src/app
-      - /usr/src/app/node_modules
-    #ports:
-      # da togliere in produzione
-      #- 3000:3000
-      # da togliere in produzione
-      #- 9229:9229
-    command:
-      # da togliere in produzione
-      nodemon --inspect=0.0.0.0 index.js
-    depends_on:
-      - myproxy
-
-  mypostfix:
-    image: catatnight/postfix
-    container_name: mailer
-    environment:
-      maildomain: mail.portaportese.it
-      smtp_user: ppmailer:ciccio123mail
-    ports:
-      - 25
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"

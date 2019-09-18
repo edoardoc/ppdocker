@@ -20,8 +20,3 @@ services:
       options:
         max-size: "200M"
         max-file: "4"
-
-  webhook-service:
-    entrypoint: ["echo", "Service disabled"]
-  mypostfix:
-    entrypoint: ["echo", "Service disabled"]
