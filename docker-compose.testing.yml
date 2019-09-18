@@ -1,8 +1,8 @@
-version: '2'
+version: '3'
 services:
-  mydbnew:
+  mydb:
     build: mydb
-    container_name: mydbnew
+    container_name: mydb
     environment:
       DB_USER: pepper
       DB_PASSWORD: dbPasswordExampleLong 
@@ -20,3 +20,8 @@ services:
       options:
         max-size: "200M"
         max-file: "4"
+
+  webhook-service:
+    entrypoint: ["echo", "Service disabled"]
+  mypostfix:
+    entrypoint: ["echo", "Service disabled"]
