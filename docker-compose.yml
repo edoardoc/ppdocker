@@ -1,5 +1,26 @@
-version: '2'
+version: '3'
 services:
+  myphp:
+    build: myphpfpm
+    volumes:
+      - ${WEBFOLDER2}:/var/www/mainservice
+      - ${LOGFOLDER}:/var/log
+    depends_on:
+      - mydb
+
+  myweb:
+    image: nginx:latest
+    ports:
+      - "8888:80"
+    volumes:
+      - ${WEBFOLDER2}:/var/www/mainservice
+      - ./conf/mainservice.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - myphp
+
+  mydb:
+    build: mydb
+      
   myproxy:
     build: myproxy
     container_name: ppproxy
