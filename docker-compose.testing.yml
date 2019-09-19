@@ -4,14 +4,14 @@ services:
     build: mydb
     container_name: mydb
     environment:
-      DB_USER: pepper
-      DB_PASSWORD: dbPasswordExampleLong 
-      DB_NAME: portaportese
+      DB_USER: ${PGSQL_USER}
+      DB_PASSWORD: ${PGSQL_PASSWORD} 
+      DB_NAME: ${PGSQL_DATABASE}
       DB_ENCODING: UTF-8    
-      VIRTUAL_HOST: ppnew.prv.lan
-      VIRTUAL_PORT: 5432
+      #VIRTUAL_HOST: ppnew.prv.lan
+      #VIRTUAL_PORT: 5432
     ports:
-      - 5430:5432
+      - 5432:5432
     volumes:
       - ./Postgres/dbnew:/pg/data
       - ./Postgres/dumps:/pginput
