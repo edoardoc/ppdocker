@@ -5,3 +5,8 @@
     GRANT ALL PRIVILEGES ON DATABASE  "$DB_NAME" TO "$DB_USER";
 EOSQL
 }
+
+psql $DB_NAME -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+psql $DB_NAME -c "CREATE EXTENSION IF NOT EXISTS postgis_topology;"
+psql $DB_NAME -c "CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;"
+psql $DB_NAME -c "CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;"
