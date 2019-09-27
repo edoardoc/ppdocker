@@ -1,4 +1,4 @@
-version: '2'
+version: "3"
 services:
   myproxy:
     build: myproxy
@@ -27,62 +27,25 @@ services:
       options:
         max-size: "200M"
         max-file: "4"
-
-  www:
-    build: mywww
-    container_name: www
-    environment:
-        VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwlocal.portaportese.it 
-        VIRTUAL_PORT: 80
-    ports:
-      - 80
-    volumes:
-      - ${LOGFOLDER}:/var/log/
-      - ${PPFOLDER}/WEB-INF/ppappsrv04.httpd.conf:/etc/httpd/conf/httpd.conf
-      - /mnt/volume-fra1-01/dump:/home/ppjr/default-ear/default-war/giornale/pdf
-      - ${PPFOLDER}:/home/ppjr/default-ear/default-war
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
-
+        
   webhook-service:
     build: myhook
     container_name: webhook-service
     environment:
-        VIRTUAL_HOST: hookocean.portaportese.it 
+      VIRTUAL_HOST: hookocean.portaportese.it
     volumes:
       - ./myhook:/usr/src/app
       - /usr/src/app/node_modules
     #ports:
-      # da togliere in produzione
-      #- 3000:3000
-      # da togliere in produzione
-      #- 9229:9229
+    # da togliere in produzione
+    #- 3000:3000
+    # da togliere in produzione
+    #- 9229:9229
     command:
       # da togliere in produzione
       nodemon --inspect=0.0.0.0 index.js
     depends_on:
       - myproxy
-      
-  ppws:
-    build: myjetty
-    container_name: ppws
-    environment:
-        HTTPS_METHOD: noredirect
-        VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it, dataocean.portaportese.it
-        VIRTUAL_PORT: 8080
-    ports:
-      - 8080
-    depends_on:
-      - myproxy
-      - mypostfix
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
 
   mypostfix:
     image: catatnight/postfix
@@ -92,6 +55,65 @@ services:
       smtp_user: ppmailer:ciccio123mail
     ports:
       - 25
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
+
+  nginx:
+    container_name: ${APP_NAME}-server
+    build:
+      context: ./nginx
+      args:
+        - 'php-fpm'
+        - '9000'
+    volumes:
+      - ${APP_PATH}:/var/www/app
+      - ${LOGFOLDER}:/var/log/nginx
+    environment:
+      VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwlocal.portaportese.it
+      VIRTUAL_PORT: 80
+    ports:
+      - 80
+    depends_on:
+      - php-fpm
+    networks:
+      - default
+    restart: always
+  php-fpm:
+    container_name: ${APP_NAME}-php
+    build:
+      context: ./php7-fpm
+      args:
+        TIMEZONE: ${TIMEZONE}
+    volumes:
+      - ${APP_PATH}:/var/www/app
+      - ./php7-fpm/config/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      DB_HOST: mydb
+      DB_PORT: 5432
+      DB_DATABASE: ${PGSQL_DATABASE}
+      DB_USERNAME: ${PGSQL_USER}
+      DB_PASSWORD: ${PGSQL_PASSWORD}
+    networks:
+      - default
+
+  mydb:
+    build: mydb
+    container_name: mydb
+    environment:
+      DB_USER: ${PGSQL_USER}
+      DB_PASSWORD: ${PGSQL_PASSWORD} 
+      DB_NAME: ${PGSQL_DATABASE}
+      DB_ENCODING: UTF-8    
+      #VIRTUAL_HOST: ppnew.prv.lan
+      #VIRTUAL_PORT: 5432
+    ports:
+      - 5432:5432
+    volumes:
+      - ./Postgres/dbnew:/pg/data
+      - ./Postgres/dumps:/pginput
     logging:
       driver: "json-file"
       options:

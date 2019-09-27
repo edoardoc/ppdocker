@@ -1,66 +1,22 @@
-version: '2'
+version: '3'
 services:
-  mydbpp:
+  mydb:
     build: mydb
-    container_name: mydbpp
+    container_name: mydb
     environment:
-      DB_USER: pepper
-      DB_PASSWORD: dbPasswordExampleLong 
-      DB_NAME: portaportese
+      DB_USER: ${PGSQL_USER}
+      DB_PASSWORD: ${PGSQL_PASSWORD} 
+      DB_NAME: ${PGSQL_DATABASE}
       DB_ENCODING: UTF-8    
-      VIRTUAL_HOST: pp200.prv.lan
-      VIRTUAL_PORT: 5432
-    ports:
-      - 5430:5432
-    volumes:
-      - ./Postgres/dbpp:/pg/data
-      - ./Postgres/dumps:/pginput
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200M"
-        max-file: "4"
-
-  mydba400:
-    build: mydb
-    container_name: mydba400
-    environment:
-        DB_USER: pepper
-        DB_PASSWORD: dbPasswordExample
-        DB_NAME: dba400L1
-        DB_ENCODING: UTF-8    
-        VIRTUAL_HOST: pp20.prv.lan, pp22.prv.lan
-        VIRTUAL_PORT: 5432
+      #VIRTUAL_HOST: ppnew.prv.lan
+      #VIRTUAL_PORT: 5432
     ports:
       - 5432:5432
     volumes:
-      - ./Postgres/dba400:/pg/data
+      - ./Postgres/dbnew:/pg/data
       - ./Postgres/dumps:/pginput
     logging:
       driver: "json-file"
       options:
         max-size: "200M"
         max-file: "4"
-
-  www:
-    links:
-      - "mydbpp:pp200.prv.lan"
-      - "mydba400:pp20.prv.lan"
-      - "mydba400:pp22.prv.lan"
-    depends_on:
-      - mydbpp
-      - mydba400
-      - ppws
-      - mypostfix
-
-  ppws:
-    links:
-      - "mydbpp:pp200.prv.lan"
-      - "mydba400:pp20.prv.lan"
-      - "mydba400:pp22.prv.lan"
-    depends_on:
-      - mypostfix
-      - mydbpp
-      - mydba400
-
-
