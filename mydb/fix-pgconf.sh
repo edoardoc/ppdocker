@@ -4,6 +4,9 @@ cat > /pg/data/postgresql.conf <<EOS
 listen_addresses = '*'
 #datestyle = 'iso, mdy'
 log_statement = 'all'
+# log_min_duration_statement (integer)
+# TODO: ricorda di andarlo a cambiare sul server disabilitando lo all
+
 #log_destination = 'stderr'
 #standard_conforming_strings = off
 # serve per evitare che gli oggetti LO abbiano un proprietario
