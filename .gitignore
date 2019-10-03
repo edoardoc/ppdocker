@@ -1,5 +1,5 @@
 utilities/server-jre-8u192-linux-x64.tar.gz
 *.war
 host/
-Postgres/
+Postgres
 pdfdelgiornale/
