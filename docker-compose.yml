@@ -119,3 +119,45 @@ services:
       options:
         max-size: "200M"
         max-file: "4"
+
+  mydbpp:
+    build: mydbvecchio
+    container_name: mydbpp
+    environment:
+      DB_USER: pepper
+      DB_PASSWORD: ${PGSQL_PASSWORD2}
+      DB_NAME: portaportese
+      DB_ENCODING: UTF-8
+      VIRTUAL_HOST: pp200.prv.lan
+      VIRTUAL_PORT: 5432
+    ports:
+      - 5429:5432
+    volumes:
+      - ./Postgres/dbpp:/pg/data
+      - ./Postgres/dumps:/pginput
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
+
+  mydba400:
+    build: mydbvecchio
+    container_name: mydba400
+    environment:
+        DB_USER: pepper
+        DB_PASSWORD: ${PGSQL_PASSWORD3}
+        DB_NAME: dba400L1
+        DB_ENCODING: UTF-8
+        VIRTUAL_HOST: pp20.prv.lan, pp22.prv.lan
+        VIRTUAL_PORT: 5432
+    ports:
+      - 5430:5432
+    volumes:
+      - ./Postgres/dba400:/pg/data
+      - ./Postgres/dumps:/pginput
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
