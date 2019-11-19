@@ -19,6 +19,7 @@ services:
           - data.portaportese.it
           - hookocean.portaportese.it
           - wwwocean.portaportese.it
+          - wwwseeweb.portaportese.it
           - dataocean.portaportese.it
           - wwwlocal.portaportese.it
           - datalocal.portaportese.it
@@ -72,7 +73,7 @@ services:
       - ${APP_PATH}:/var/www/app
       - ${LOGFOLDER}:/var/log/nginx
     environment:
-      VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwlocal.portaportese.it
+      VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwseeweb.portaportese.it, wwwlocal.portaportese.it
       VIRTUAL_PORT: 80
     ports:
       - 80
