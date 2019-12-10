@@ -97,8 +97,8 @@ services:
       DB_DATABASE: ${PGSQL_DATABASE}
       DB_USERNAME: ${PGSQL_USER}
       DB_PASSWORD: ${PGSQL_PASSWORD}
-    links:
-      - "mydb:vm8412.seewebcloud.it"
-      - "mydba400:vm8412.seewebcloud.it"
-      networks:
+    extra_hosts:
+     - "mydb:vm8412.seewebcloud.it"
+     - "mydba400:vm8412.seewebcloud.it"
+    networks:
       - default
