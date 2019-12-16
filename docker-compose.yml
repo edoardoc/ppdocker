@@ -91,14 +91,8 @@ services:
     volumes:
       - ${APP_PATH}:/var/www/app
       - ./php7-fpm/config/php.ini:/usr/local/etc/php/php.ini
-    environment:
-      DB_HOST: mydb
-      DB_PORT: 5432
-      DB_DATABASE: ${PGSQL_DATABASE}
-      DB_USERNAME: ${PGSQL_USER}
-      DB_PASSWORD: ${PGSQL_PASSWORD}
     extra_hosts:
-     - "mydb:vm8412.seewebcloud.it"
-     - "mydba400:vm8412.seewebcloud.it"
+     - "mydb:95.174.30.112"
+     - "mydba400:95.174.30.112"
     networks:
       - default
