@@ -113,8 +113,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./Postgres/dbnew:/pg/data
-      - ./Postgres/dumps:/pginput
+      - /mnt/volume-fra1-01/dbnew:/pg/data
+      - /mnt/volume-fra1-01/dumps:/pginput
     logging:
       driver: "json-file"
       options:
@@ -134,8 +134,8 @@ services:
     ports:
       - 5429:5432
     volumes:
-      - ./Postgres/dbpp:/pg/data
-      - ./Postgres/dumps:/pginput
+      - /mnt/volume-fra1-01/dbpp:/pg/data
+      - /mnt/volume-fra1-01/dumps:/pginput
     logging:
       driver: "json-file"
       options:
@@ -155,8 +155,8 @@ services:
     ports:
       - 5430:5432
     volumes:
-      - ./Postgres/dba400:/pg/data
-      - ./Postgres/dumps:/pginput
+      - /mnt/volume-fra1-01/dba400:/pg/data
+      - /mnt/volume-fra1-01/dumps:/pginput
     logging:
       driver: "json-file"
       options:
