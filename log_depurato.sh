@@ -1,2 +1,0 @@
-docker logs --tail=20000 datapp 2>&1 | egrep -v "Errore modifica annuncio|modifica UPDATE annuncio|Nuova registrazione|ANNUNCIO CurrentQuery|getListamiopp|LOGIN ERR|getListamiopp A400 CurrentQuery|fixQuotesAroundSoapAction|INFO: Received WS-I BP non-conformant Unquoted SoapAction HTTP header: getAnnunci|fixQuotesAroundSoapAction|generaQueryRubricheCliente|annuncio\:|INFO: Received WS-I BP non-conformant Unquoted SoapAction HTTP header: getRicercaGlobale|INFO: Received WS-I BP non-conformant Unquoted SoapAction HTTP header: http://datasynaptic.com/portaportese/getAnnunci"
-
