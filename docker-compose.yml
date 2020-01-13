@@ -16,6 +16,7 @@ services:
         aliases:
           - portaportese.it
           - www.portaportese.it
+          - beta.portaportese.it
           - data.portaportese.it
           - hookocean.portaportese.it
           - wwwocean.portaportese.it
@@ -73,7 +74,7 @@ services:
       - ${APP_PATH}:/var/www/app
       - ${LOGFOLDER}:/var/log/nginx
     environment:
-      VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwseeweb.portaportese.it, wwwlocal.portaportese.it
+      VIRTUAL_HOST: www.portaportese.it, portaportese.it, wwwocean.portaportese.it, wwwseeweb.portaportese.it, beta.portaportese.it, wwwlocal.portaportese.it
       VIRTUAL_PORT: 80
     ports:
       - 80
@@ -92,7 +93,7 @@ services:
       - ${APP_PATH}:/var/www/app
       - ./php7-fpm/config/php.ini:/usr/local/etc/php/php.ini
     extra_hosts:
-     - "mydb:95.174.30.112"
-     - "mydba400:95.174.30.112"
+     - "mydb:95.174.12.72"
+     - "mydba400:95.174.12.72"
     networks:
       - default
