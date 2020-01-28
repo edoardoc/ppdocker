@@ -1,0 +1,72 @@
+<div data-options="dxView : { name: 'NuovoUtente' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxLoadPanel: { message: msgLoadPanel, visible: loadPanelVisible }"></div>   
+
+        <div class="nuovo-utente" data-bind="dxScrollView: {}">        	                                    
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Registrazione a portaportese.it</div>
+                <div class="dx-field">
+                    <div class="testo">
+                        Compilando questo modulo riceverai tramite <b>email</b> la password per inserire e gestire i tuoi annunci.
+                    </div>                
+                    <div class="dx-field-label">E-mail</div>
+                    <div class="dx-field-value">
+                        <div class="email" data-bind="dxTextBox: { value:email,placeholder: 'Email' }"></div>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Nome</div>
+                    <div class="dx-field-value">
+                        <div class="nome" data-bind="dxTextBox: { value:nome,placeholder: 'Nome' }"></div>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Cognome</div>
+                    <div class="dx-field-value">
+                        <div class="cognome" data-bind="dxTextBox: { value:cognome,placeholder: 'Cognome' }"></div>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Telefono</div>
+                    <div class="dx-field-value">
+                        <div class="telefono" data-bind="dxTextBox: { value:telefono,placeholder: 'Telefono (solo numeri)' }"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset consenso">
+                <div class="dx-field consenso">      
+                    <div data-bind="dxTextArea: {
+                        value: testoConsenso,
+                        height: 150
+                    }"></div>                                     
+	            </div>                          
+
+                <p><a href="#Regolamento" >Regole di pubblicazione</a>.</p>
+                <br />
+                <p><a href="#Condizioni" >Condizioni del Servizio</a>.</p>
+				<br />                  
+                <div class="dx-field">                               
+                    <div class="accettazione-consenso" data-bind="dxCheckBox:{value:consenso,text:'Per integrale accettazione e consenso'},dxValidator: {                      																																
+                    																								validationRules: [{type:'required',message: 'Autorizzazione necessaria'}] }">
+                    </div>
+                
+	            </div>                            
+            </div>            
+            
+             <div class="dx-fieldset summary" >  
+                <div class="dx-field">               
+                    <div data-bind="dxValidationSummary: { }"></div>                                         
+               </div>
+               <div class="dx-field">             
+                    <div class="dx-field-label"></div>                
+                    <div class="dx-field-value">                
+                        <div class="button" data-bind="dxButton: { text: 'Registrati', onClick: registra}"></div>
+                    </div>
+               </div>
+                
+            </div>
+            
+        </div>	
+        
+    </div>
+</div>

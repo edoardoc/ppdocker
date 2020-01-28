@@ -1,0 +1,41 @@
+{
+  "versioni": {
+    "db": "20160330",
+    "ipad": "1.0",
+    "iphone": "1.0",
+    "androids": "1.0",
+    "androidt": "1.0",
+    "kindle": "1.0",
+    "bb10": "1.0",
+    "wp8": "1.0",
+    "msg": {
+        "en": "New version available, please update." ,
+        "es": "Nueva versione disponibles, por favor, actualice." ,
+        "it": "Nuova versione disponibile nello Store, si prega di aggiornare." ,
+        "pt": "Nova versione disponível, por favor atualize." 
+    }     
+  },
+  "adv": {
+    "ios": {
+        "enabled": 0 ,
+        "sponsoredby": 0,
+        "bannertop": 0,
+        "bannerbottom": 0,
+        "interstitial": 0
+    } ,
+    "android": {
+        "enabled": 0 ,
+        "sponsoredby": 0,
+        "bannertop": 0,
+        "bannerbottom": 0,
+        "interstitial": 0
+    } ,
+    "win8": {
+        "enabled": 0 ,
+        "sponsoredby": 0,
+        "bannertop": 0,
+        "bannerbottom": 0,
+        "interstitial": 0
+    } 
+  }
+}

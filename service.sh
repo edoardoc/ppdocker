@@ -1,7 +1,4 @@
 #!/bin/bash
-
-# TODO: DEVI AGGIORNARE LE CARTELLE
-
 if [ "$1" == "" ]; then
 	echo "devi specificare anche il servizio che vuoi ricompilare e reinit!"
 	exit 1
@@ -44,3 +41,4 @@ docker-compose build $2
 docker-compose stop $2
 
 docker-compose up $3 $2
+

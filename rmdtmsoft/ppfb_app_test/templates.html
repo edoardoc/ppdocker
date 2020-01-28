@@ -1,0 +1,122 @@
+﻿<script type="text/html" id="list-template">
+
+
+	<!-- ko ifnot: $data.fotothumbnail --> 
+	 <div class="image"  data-bind="style: { backgroundImage: 'url(images/img_not_available.png)'}"> 		
+     </div>		
+	<!-- /ko -->
+	
+	<!-- ko if: $data.fotothumbnail -->
+		 <div class="image" data-bind="style: { backgroundImage: 'url('+http_url+fotothumbnail[0]+')'}">
+	 	<!--<div class="image lazy loading" data-bind="attr: { 'data-src': http_url+fotothumbnail[0]}">-->
+     </div>		
+	<!-- /ko -->
+		
+
+	<div class="info">
+		<div class="price">
+			<!-- ko if: $data.prezzo > 0 -->		
+				<span data-bind="text: Globalize.format(parseFloat(prezzo), 'c0')"></span>                    
+			<!-- /ko -->				
+			<!-- ko if: $data.prezzo == 0 -->					
+				<span data-bind="text: 'n.d.'"></span>                    			
+			<!-- /ko -->							
+		</div>
+		<div class="about">
+			<div class="title" data-bind="text: titolo"></div>
+		
+		
+            <!-- ko if: $data.superficie 	 -->	
+			<div data-bind="visible:$data.superficie>0,text: superficie+'mq'"></div>	
+			<!-- /ko -->	
+					
+			
+			<!-- ko if: $data.dataAnnuncio  	 -->		
+			<div class="data-annuncio" data-bind="text: dataAnnuncio "></div>
+			<!-- /ko -->			
+						
+		</div>
+	</div>
+	<div class="clear-both"></div>
+	<!-- ko if: $data.changeFavState -->
+	<div class="fav" data-bind="dxAction: changeFavState">
+		<div data-bind="css: { 'selected': IsFavorite() }" class="fav-img"></div>
+	</div>   
+	<!-- /ko -->         
+	<div class="lookup-arrow"></div>
+	
+</script>
+
+
+<script type="text/html" id="list-annunci-template">
+
+
+	<!-- ko ifnot: $data.minifoto --> 
+	 <div class="image"  data-bind="style: { backgroundImage: 'url(images/img_not_available.png)'}"> 		
+     </div>		
+	<!-- /ko -->
+	
+	<!-- ko if: $data.minifoto -->
+	 <div class="image" data-bind="style: { backgroundImage: 'url('+http_url+minifoto+')'}">
+	 <!--<div class="image lazy" data-bind="attr: { 'data-original': http_url+fotothumbnail[0]}">-->
+     </div>		
+	<!-- /ko -->
+		
+
+
+	<div class="info">
+		<div class="price">
+			<!-- ko if: $data.prezzo -->		
+				<span data-bind="text: Globalize.format(parseFloat(prezzo), 'c0')"></span>                    
+			<!-- /ko -->				
+			<!-- ko if: $data.prezzo == 0 -->					
+				<span data-bind="text: 'n.d.'"></span>                    			
+			<!-- /ko -->							
+		</div>
+		<div class="about">
+			<div class="title" data-bind="text: testo"></div>		
+			<div class="telefono" data-bind="text: telefono[0]"></div>				
+			<!-- ko if: $data.telefono[1] -->					
+			<div class="telefono" data-bind="text: telefono[1]"></div>							
+			<!-- /ko -->										
+			<!-- ko if: $data.dataonline  	 -->		
+			<div class="data-annuncio" data-bind="text: dataonline "></div>
+			<!-- /ko -->			
+			
+		</div>
+    	<div class="clear-both"></div>		
+		<div class="categoria-rubrica">		
+			<!-- ko if: $data.rubrica[0] -->					
+				<div class="categoria" data-bind="text: desRubrica"></div>										
+
+			<!-- /ko -->													
+		</div>
+		
+	</div>
+	<div class="clear-both"></div>
+	<!-- ko if: $data.ka -->
+		<div class="fav" data-bind="dxAction: function() {$root.cancellaAnnuncio(ka)}">
+			<div class="delete-img"></div>
+		</div>   
+	<!-- /ko -->													
+	<!-- ko if: $data.stato=='annullato-p' -->
+		<div class="btn-restore" data-bind="dxAction: function() {$root.ripristinaAnnuncio(ka)}">
+			<div class="ripristino-img"></div>
+		</div>   
+	<!-- /ko -->													
+	
+	<div class="lookup-arrow"></div>
+	
+</script>
+
+
+
+<script type="text/html" id="price-template">
+    <!-- ko if: $data.prezzo > 0 -->	
+    <div class="price"><span data-bind="text: Globalize.format(parseFloat(prezzo), 'c0')"></span></div>
+	<!-- /ko -->								
+    <!-- ko if: $data.prezzo == 0 -->	
+    <div class="price"><span data-bind="text: 'n.d.'"></span></div>
+	<!-- /ko -->								
+	
+</script>

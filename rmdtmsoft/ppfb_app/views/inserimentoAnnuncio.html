@@ -1,0 +1,200 @@
+<link async href="http://fonts.googleapis.com/css?family=Open%20Sans" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css" />
+<div data-options="dxView : { name: 'InserimentoAnnuncio',disableCache: true } " >
+
+   
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " data-bind="css: cssUtenteLoggato">
+        <div data-bind="dxLoadPanel: { message: msgLoadPanel, visible: loadPanelVisible }"></div>               
+        <div data-bind="dxLoadPanel: { message: msgInfo, visible: PanelMsgVisible,showIndicator: false }"></div>               
+		<div style="height: 100%" data-bind="dxDeferRendering: { showLoadIndicator: false, renderWhen:  modelIsReady}">            
+            <div style="left:30" class="action_sheet_upload" data-bind="dxActionSheet: { title: $root.actionsheet.title, items: $root.actionsheet.items, showTitle: true, visible: $root.actionsheet.visible,showCancelButton:true,cancelText:'Annulla', usePopover: false }"></div>
+        
+	        <div class="impossibile-pubblicare" >         
+            	<div>Ci siamo quasi..</div>       
+                <div class="button-container">                   
+                    
+                    <div class="button clear login" data-bind="dxButton: { text: 'Inserisci il tuo Annuncio', onClick: loginFB,visible:utenteSloggato}"></div>					                    				                    
+                </div>
+                
+            </div>
+            
+            <div data-bind="dxToast: { message: 'Sample success message', type: 'success', visible: toastSuccessVisible,displayTime: 111113000 }"></div>
+            <div class="inserimento-annuncio" >        
+                <div class="inserimento-annuncio-header" >                
+                    <div class="dx-fieldset" >   
+                        <div class="dx-field">                                 
+                            <div class="titolo">Rubrica</div>
+                        </div>
+                        <div class="dx-field">                 
+    
+                            <div id="filtroCategoria"  class="categoria" data-bind="dxSelectBox: {
+                                                                                                              onValueChanged:function(e){filtraTendinaRubriche(e.component.option('value').ID)},
+                                                                                                              placeholder:'Scegli categoria',
+                                                                                                              dataSource: categorie,
+                                                                                                              displayExpr: 'Nome',
+                                                                                                              searchEnabled:false,
+                                                                                                              readOnly:categorieDisabilitate,
+                                                                                                              value:valoreCategoria,
+                                                                                                              title:'Categoria'}">;                                                                        
+                            </div>
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="inserimento-annuncio-content" style="display:block" >                                
+                    <div class="dx-fieldset dinamico" >   
+                    </div>            
+                    <div class="dx-fieldset testo" >   
+                        <div class="dx-field">   
+                            <div class="titolo">Testo dell'annuncio</div>
+                        </div>
+                        <div class="dx-field campo_testo">   
+    
+                            <div id="campoAnnuncio_testo" ObjAnnuncio="testo"  class="campo-lookup testo" data-bind="dxTextArea:{onFocusOut:focusOut,placeholder:'testo dell\'annuncio (max 240 caratteri)',maxLength:240,height: 100,value:testoAnnuncio}">
+                            </div>
+    
+    
+                        </div>
+                        
+                    </div>            
+                    <div class="dx-fieldset contatti" >   
+                        <div class="dx-field">   
+                            <div class="titolo">Contatti</div>
+                        </div>                
+                        <div class="dx-field">   
+                            <div class="label-telefono">pref./telefono</div>
+                            <div class="value-prefisso">
+                                <div id="campoAnnuncio_pref1" ObjAnnuncio="pref1"  class="campo-lookup pref1" data-bind="dxTextBox:{onFocusOut:focusOut,value:'',width:52,maxLength:4,value:pref1 ,disabled:privacy}">
+                                </div>
+                                
+                            </div>						
+                            <div class="value-telefono">
+                                <div id="campoAnnuncio_telef1" ObjAnnuncio="telef1"  class="campo-lookup telef1" data-bind="dxTextBox:{onFocusOut:focusOut,value:'',width:100,value:telef1,disabled:privacy}">
+                                </div>
+                                
+                            </div>						
+                            
+                        </div>                
+                        <div class="dx-field">   
+                            <div class="label-telefono">pref./telefono</div>
+                            <div class="value-prefisso">
+                                <div id="campoAnnuncio_pref2" ObjAnnuncio="pref2"  class="campo-lookup pref2" data-bind="dxTextBox:{onFocusOut:focusOut,value:'',width:52,maxLength:4,value:pref2,disabled:privacy}">
+                                </div>
+                                
+                            </div>						
+                            <div class="value-telefono">
+                                <div id="campoAnnuncio_telef2" ObjAnnuncio="telef2"  class="campo-lookup telef2" data-bind="dxTextBox:{onFocusOut:focusOut,value:'',width:100,value:telef2,disabled:privacy}">
+                                </div>
+                                
+                            </div>						
+                            
+                        </div>                
+                        
+                    </div>            
+                    
+                    
+                    <div class="dx-fieldset foto" >   
+                        <div class="dx-field">   
+                            <div class="titolo">Foto dell'annuncio</div>
+                        </div>
+                        <div class="dx-field campo_foto">   
+    
+                            <div id="campoAnnuncio_foto" >
+                                                                                                  
+                                                                                                                     
+                            </div>
+                            <!-- The fileinput-button span is used to style the file input field as button -->
+                            <span class="btn btn-success fileinput-button">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>Foto</span>
+                                <!-- The file input field used as target for the file upload widget -->
+                                <input id="fileupload" type="file" name="files[]" multiple>
+                            </span>
+                            <br>
+                            <br>
+                            <!-- The global progress bar -->
+                            <div id="progress" class="progress">
+                                <div class="progress-bar progress-bar-success"></div>
+                            </div>
+                            <!-- The container for the uploaded files -->
+                            <div id="files" class="files"></div>
+   
+                        </div>
+                        
+                    </div>            
+                    <!-- The template to display files available for upload -->
+                    <script id="template-upload" type="text/x-tmpl">
+                        {% for (var i=0, file; file=o.files[i]; i++) { %}
+                        <tr class="template-upload fade">
+                            <td>
+                                <span class="preview"></span>
+                            </td>
+                            <td>
+                                <p class="name">{%=file.name%}</p>
+                                <strong class="error"></strong>
+                            </td>
+                            <td>
+                                <p class="size">Processing...</p>
+                                <div class="progress"></div>
+                            </td>
+                            <td>
+                                {% if (!i && !o.options.autoUpload) { %}
+                                <button class="start" disabled>Start</button>
+                                {% } %}
+                                {% if (!i) { %}
+                                <button class="cancel">Cancel</button>
+                                {% } %}
+                            </td>
+                        </tr>
+                        {% } %}
+                    </script>                    
+                    <div class="dx-fieldset privacy" >   
+                        <div class="dx-field">   
+                            <div class="label-email">email</div>
+                            <div class="value-email">
+                                <div id="campoAnnuncio_pubblicaemail" ObjAnnuncio="pubblicaemail"  class="campo-lookup email" data-bind="dxCheckBox:{onFocusOut:focusOut,value:pubblicaEmail,text:'desidero la pubblicazione dell\'email'}">
+                                </div>
+                                
+                            </div>						
+                            
+                        </div>                
+                    
+                        <div class="dx-field">   
+                            <div class="titolo">Privacy</div>
+                        </div>                
+                        <div class="dx-field">   
+                            <div class="value-privacy">
+                                <div id="campoAnnuncio_privacy" ObjAnnuncio="_privacy"  class="campo-lookup privacy" data-bind="dxCheckBox:{onFocusOut:focusOut,value:privacy,text:'non desidero pubblicare i numeri di telefono',onValueChanged:cambioFlagPrivacy}">
+                                </div>
+                                
+                            </div>						
+                            
+                        </div>                
+                    
+                    </div>            
+                    
+                </div>            
+                <div class="inserimento-annuncio-footer"  style="display:none"  >       
+	                <div class="dx-fieldset " >  
+                       <div class="dx-field">    
+                    
+						    <div data-bind="dxValidationSummary: { }"></div>                                         
+                      </div>
+                       <div class="dx-field">    
+
+                           <div class="label-accettazione-regolamento">Inviando l'annuncio dichiari di accettare il <a href="#Regolamento" >Regolamento</a></div>                  			    								
+       
+                           <div class="dx-field-value button"> 
+    
+                                <div class="button clear" data-bind="dxButton: { text: testoPubblicaAnnuncio, onClick: pubblicaAnnuncio,visible:visibleTastoPubblica}"></div>					                    				            
+                           </div>
+                 
+                       </div>
+                      
+                    </div>
+
+               </div>
+            </div>
+		</div>            
+    </div>
+</div>

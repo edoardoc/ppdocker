@@ -1,0 +1,263 @@
+.dx-overlay-wrapper {
+    position:fixed!important;
+    top:-50%;
+}
+.impossibile-pubblicare  {
+	padding:10px;
+    text-align:center;
+}
+
+.impossibile-pubblicare .button-container{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+
+}
+
+.impossibile-pubblicare .button-container .login.button {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: relative;
+  cursor: pointer;
+  padding: 0 20px 0 73px;
+  border: none;
+  font: normal 20px/2.4 "Open Sans", Helvetica, sans-serif;
+  color: rgba(255,255,255,0.9);
+  
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(100,138,214,1);
+  -webkit-box-shadow: 0 5px 0 0 rgba(88,116,173,1) ;
+  box-shadow: 0 5px 0 0 rgba(88,116,173,1) ;
+  text-shadow: 0 1px 1px rgba(87,151,180,0.36) ;
+  -webkit-transition: top 50ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: top 50ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: top 50ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: top 50ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.impossibile-pubblicare .button-container .login.button:hover {
+  background: rgba(91,125,193,1);
+  -webkit-box-shadow: 0 5px 0 0 rgba(80,105,155,1) ;
+  box-shadow: 0 5px 0 0 rgba(80,105,155,1) ;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.impossibile-pubblicare .button-container .login.button:active {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 0 rgba(80,105,155,1) ;
+  box-shadow: 0 3px 0 0 rgba(80,105,155,1) ;
+}
+
+.impossibile-pubblicare .button-container .login.button::before {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  content: "";
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  border: 0 solid #018dc4;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  font: normal medium/normal Arial, Helvetica, sans-serif;
+  color: rgba(0,0,0,0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: url(../images/21875-v2clm0.png), rgba(0,0,0,0.05);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-background-origin: content-box;
+  background-origin: content-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 30px auto;
+  background-size: 30px auto;
+  text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+
+.impossibile-pubblicare .button-container .login .dx-button-content {
+    min-height:22px;
+    padding:0px;
+    background-color:transparent;
+}
+.impossibile-pubblicare .button-container .login .dx-button-content .dx-button-text {
+    color:white;
+    font-size:15px;
+    padding:5px;
+    font-weight:bold;
+    background-color:transparent;
+    
+}
+.dx-theme-android5 .impossibile-pubblicare .button-container .login .dx-button-content .dx-button-text {
+    line-height:34px;
+    font-size:13px;
+    
+}
+
+.utenteLoggato .impossibile-pubblicare {
+	display:none;
+}
+.utenteGuest .inserimento-annuncio {
+	display:none;
+}
+.inserimento-annuncio .dx-fieldset {
+	border-bottom:none;
+	border-top:none;
+}
+.inserimento-annuncio-footer .dx-button{
+/*	position:relative;
+	float:right;*/
+	
+}
+.inserimento-annuncio .dx-field {
+    clear: both;
+    padding-top: 6px;
+    border-bottom: 0px;
+	font-weight:bold;
+}
+.inserimento-annuncio .dx-field .titolo{
+	font-size: 16px;
+	font-style:italic;
+	color:#005ca9;	
+}
+.dx-theme-ios7 .inserimento-annuncio .dx-field .titolo{
+
+
+	
+}
+.inserimento-annuncio .dx-fieldset.contatti .label-telefono{
+	display: inline-block;
+	margin-right: 8px;
+	vertical-align: top;
+    line-height: 28px;
+}
+.dx-theme-android5 .inserimento-annuncio .dx-fieldset.contatti .label-telefono{
+	vertical-align: baseline;
+}
+.inserimento-annuncio .dx-fieldset.contatti .value-prefisso{
+	display: inline-block;
+
+}
+.inserimento-annuncio .dx-fieldset.contatti .value-telefono{
+	display: inline-block;
+}
+
+.inserimento-annuncio .dx-fieldset.contatti .label-email{
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: top;
+    line-height: 28px;
+}
+.dx-theme-android5 .inserimento-annuncio .dx-fieldset.contatti .label-email{
+	vertical-align: baseline;
+}
+.inserimento-annuncio .dx-fieldset.contatti .value-email{
+	display: inline-block;
+}
+
+.inserimento-annuncio .dx-fieldset.contatti #campoAnnuncio_email{
+
+	font-size: 11px;
+}
+.inserimento-annuncio .dx-fieldset.privacy #campoAnnuncio_privacy{
+
+	font-size: 11px;
+}
+
+
+
+.inserimento-annuncio .dx-field-value.button:not(.dx-switch):not(.dx-checkbox):not(.dx-button){
+	width:40%;
+}
+.inserimento-annuncio .label-accettazione-regolamento {
+	font-size:11px;
+	font-weight:normal;
+	display:inline-block;
+	width:60%;
+	line-height:100%;
+}
+.inserimento-annuncio .foto-annuncio{
+	border:1px solid gray;
+	border-radius:3px;
+	display:inline-block;
+	margin-right:2px;
+	margin-bottom:10px;
+	width:100px;
+	height:100px;
+	text-align:center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}	
+.inserimento-annuncio .foto-annuncio .ico-elimina{
+	background-image: url(../images/ico_elimina.png);
+	width: 27px;
+	height: 27px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	
+	float: right;
+}
+.inserimento-annuncio .foto-annuncio img{
+	height:100%;
+	max-width: 96px;
+}
+.inserimento-annuncio #campoAnnuncio_mappa {
+	width:100%;
+	height:200px;
+}
+
+.inserimento-annuncio .dx-button-content .dx-button-text {
+    color: white;
+	font-weight:bold;
+}
+.inserimento-annuncio .dx-button {
+    background-color: #005ca9;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.inserimento-annuncio  .inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inserimento-annuncio  inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+}
+
+.inserimento-annuncio .inputfile:focus + label,
+.inserimento-annuncio .inputfile + label:hover {
+    background-color: red;
+}
+
+.inserimento-annuncio .inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+.inserimento-annuncio .inputfile + label * {
+	pointer-events: none;
+}

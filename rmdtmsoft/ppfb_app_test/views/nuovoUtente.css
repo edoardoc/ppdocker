@@ -1,0 +1,28 @@
+.nuovo-utente .dx-fieldset.summary {
+	border-top:none;
+	border-bottom:none;
+}
+
+.nuovo-utente .dx-fieldset.summary .dx-field{
+	border-bottom:none;
+}
+
+
+.dx-theme-android5 .dx-field.consenso {
+	border:1px solid;
+	
+}
+.dx-field.consenso {
+	margin-bottom:10px;	
+}
+.dx-theme-ios7 .dx-fieldset.consenso {
+	border-bottom:none;
+	border-top:none;
+	margin-top:5px;
+}
+
+
+
+.dx-theme-generic  .dx-fieldset.consenso .dx-checkbox-text {
+	padding-left:25px;
+}

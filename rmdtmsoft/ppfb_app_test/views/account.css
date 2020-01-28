@@ -1,0 +1,179 @@
+
+.utenteLoggato .login {
+	display:none;
+    
+}
+
+.dx-theme-ios7  .utenteGuest .dx-field {
+	border-bottom:none;
+}
+
+.utenteGuest .pannello-utente {
+	display:none;
+}
+
+.login {
+	
+}
+.login{
+
+
+}
+.contatto-login{
+	text-align: center;
+	margin-bottom:30px;
+	margin-top:20px;
+}
+
+.dx-theme-generic .login .dx-button {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	-ms-border-radius: 0px;
+	-o-border-radius: 0px;
+	border-radius: 0px;
+	
+	padding: 2px;
+	color: #fff;
+	background-repeat: no-repeat;
+
+	-webkit-box-shadow: inset 0 0 1px 0 #8d959f,0 2px 5px #d7d8d9;
+	-moz-box-shadow: inset 0 0 1px 0 #8d959f,0 2px 5px #d7d8d9;
+	-ms-box-shadow: inset 0 0 1px 0 #8d959f,0 2px 5px #d7d8d9;
+	-o-box-shadow: inset 0 0 1px 0 #8d959f,0 2px 5px #d7d8d9;
+	box-shadow: inset 0 0 1px 0 #8d959f,0 2px 5px #d7d8d9;
+}
+.dx-theme-generic .login .dx-button .dx-button-content .dx-button-text {
+	color: white;
+}
+
+.dx-theme-android5 .utenteGuest .dx-button.btn-facebook .dx-button-content {
+    background-color: #2b4b90;
+    background-image: -moz-linear-gradient(top, #3b5998, #133783);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3b5998), to(#133783));
+    background-image: -webkit-linear-gradient(top, #3b5998, #133783);
+    background-image: -o-linear-gradient(top, #3b5998, #133783);
+    background-image: linear-gradient(to bottom, #3b5998, #133783);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3b5998', endColorstr='#ff133783', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+
+.login .testo{
+	clear:both;
+	padding-top:10px;
+	padding-bottom:10px;	
+		
+					
+}
+
+.categoria-rubrica::before {
+	clear:both;	
+}
+.categoria-rubrica {
+	text-align:center;
+	background-color:#EFEFEF;
+	font-size: 12px;
+    color: #888080;
+    line-height: 19px;	
+	margin-bottom:3px;
+}
+.categoria-rubrica .categoria{
+	display:inline-block;
+	
+}
+.categoria-rubrica .rubrica{
+	display:inline-block;
+	
+}
+.categoria-rubrica .rubrica::before{
+	content:' - ';
+}
+.pannello-utente {
+	height:100%;
+}
+.pannello-utente  .list-content-annunci{
+	height:100%;
+}
+.pannello-utente .list-content-annunci .list-indentation {
+	padding-bottom:0px;
+}
+
+
+.list-content-annunci .dx-list-item-content {
+    white-space: normal;
+    position: relative;
+    border-bottom: 0px;
+    border-top: 0px;
+}
+
+.dx-button .dx-icon.dx-icon-logout{
+	 background-image: url(../images/logout.png);
+	 width:20px;
+	 height:20px;	
+	 background-size:100%;	 
+	 margin-top:6px
+}
+
+.list-content-annunci .list-indentation .list-item .fav {
+	display:none;
+}
+.list-content-annunci .list-indentation.edit-mode .list-item.attesa-drw .fav, 
+.list-content-annunci .list-indentation.edit-mode .list-item.online-drw .fav {
+	display:block;
+	right:8px;
+}
+.list-content-annunci .list-indentation.edit-mode .list-item .fav .delete-img {
+	background-image:url(../images/recycle_bin_sel_nocircle.png);
+	height:43px;
+	width:21px;
+	background-repeat:no-repeat;
+	display:block;
+	background-size:contain;
+}
+
+.list-content-annunci .list-indentation .list-item.annullato-p  .ripristino-img {
+	background-image:url(../images/restore.png);
+	height:43px;
+	width:30px;
+	background-repeat:no-repeat;
+	display:block;
+	position: absolute;
+    background-size: 100%;
+    top: 2px;
+    right: 8px;	
+}
+
+
+.list-content-annunci .dx-list-group-header {
+    padding: 10px 15px 9px;
+    border-top: 1px solid #b7b6bb;
+    font-size: 12px;
+    background: #efeef3;
+}
+.gruppo-annunci {
+	font-weight:bold;
+}
+
+.gruppo-annunci.annullato_p,
+.gruppo-annunci.annunci_rifiutati,
+.list-item.annullato-p .about .title ,
+.list-item.annunci-rifiutati .about .title {
+
+	color:red;
+	
+}
+.gruppo-annunci.online_drw,
+.list-item.online-drw .about .title {
+	color:green;
+	
+}
+.gruppo-annunci.attesa_r,
+.gruppo-annunci.attesa_rw,
+.list-item.attesa-r .about .title,
+.list-item.attesa-rw .about .title {
+	
+	color:#005ca9;
+	
+}
+

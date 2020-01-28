@@ -1,3 +1,3 @@
 userdel -r ppweb
 useradd -s /sbin/nologin ppweb
-(echo dbPasswordExample; echo dbPasswordExample) | passwd ppweb
+(echo ${PGSQL_PASSWORD3}; echo ${PGSQL_PASSWORD3}) | passwd ppweb
