@@ -91,7 +91,7 @@ services:
         TIMEZONE: ${TIMEZONE}
     volumes:
       - ${APP_PATH}:/var/www/app
-      - ./php7-fpm/config/php.ini:/usr/local/etc/php/php.ini
+      - ./php_fpm_liveconf/:/usr/local/etc/
     extra_hosts:
      - "mydb:95.174.12.72"
      - "mydba400:95.174.12.72"
