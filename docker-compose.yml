@@ -90,7 +90,7 @@ services:
         TIMEZONE: ${TIMEZONE}
     volumes:
       - ${APP_PATH}:/var/www/app
-      - ./php7-fpm/config/php.ini:/usr/local/etc/php/php.ini
+      - ./php_fpm_liveconf/:/usr/local/etc/
     environment:
       DB_HOST: mydb
       DB_PORT: 5432
