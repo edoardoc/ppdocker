@@ -14,8 +14,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /mnt/volume-fra1-01/dbnew:/pg/data
-      - /mnt/volume-fra1-dumps:/pginput
+      - /opt/dbnew:/pg/data
+      - /opt/dumps:/pginput
     logging:
       driver: "json-file"
       options:
