@@ -11,7 +11,7 @@ MAXDUMPS=3
 # Main
 [ ! -d $DUMPDIR ] && mkdir $DUMPDIR
 export PATH="$PATH:/usr/local/pgsql/bin"
-pg_dump --verbose -b -Fc -Z9 -c -f /dump/${DUMPFILE} -d "$PGDB" > /dump/${DUMPFILE}.log 2>&1
+pg_dump -n public --encoding utf8 -Fc -Z9 -c -f /dump/${DUMPFILE} -d "$PGDB" > /dump/${DUMPFILE}.log 2>&1
 
 chown postgres.postgres ${DUMPFILE}
 

@@ -1,9 +1,9 @@
-docker run -ti --rm \
-    -v /mnt/volume-fra1-dumps/:/dump \
+docker run -t --rm \
+    -v /opt/dumps/:/dump \
     -e PREFIX=dba400 \
     -e PGDB=dba400L1 \
-    -e PGPASSWORD=dbPasswordExample \
-    -e PGHOST=194.242.232.21 \
+    -e PGPASSWORD=${PGSQL_PASSWORD3} \
+    -e PGHOST=vm8412.seewebcloud.it \
     -e PGUSER=pepper \
-    -e PGPORT=5432 \
+    -e PGPORT=5430 \
     mydumper
