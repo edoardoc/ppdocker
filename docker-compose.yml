@@ -28,6 +28,25 @@ services:
       options:
         max-size: "200M"
         max-file: "4"
+
+  ppws:
+    build: myjetty
+    container_name: ppws
+    environment:
+        HTTPS_METHOD: noredirect
+        VIRTUAL_HOST: data.portaportese.it, datalocal.portaportese.it, dataocean.portaportese.it
+        VIRTUAL_PORT: 8080
+    ports:
+      - 8080
+    depends_on:
+      - myproxy
+      - mypostfix
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200M"
+        max-file: "4"
+
         
   webhook-service:
     build: myhook
