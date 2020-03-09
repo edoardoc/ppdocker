@@ -183,14 +183,17 @@ services:
         max-file: "4"
 
   mypureftp:
-    image: stilliard/pure-ftpd
+    image: stilliard/pure-ftpd:latest
     container_name: mypureftp
     ports:
       - "21:21"
       - "30000-30009:30000-30009"
     volumes:
-      - ${FTP_DATA_FOLDER}/ftpusers:/home/ftpusers
-      - ${FTP_DATA_FOLDER}/passwd:/etc/pure-ftpd/passwd
+      - "${FTP_DATA_FOLDER}/gestionaleauto:/home/gestionaleauto/"
+      - "${FTP_DATA_FOLDER}/passwd:/etc/pure-ftpd/passwd"
     environment:
+      PUBLICHOST: "165.227.130.230"
+      FTP_USER_NAME: gestionaleauto
+      FTP_USER_PASS: ${FTP_PASSWORD1}
+      FTP_USER_HOME: /home/gestionaleauto
       ADDED_FLAGS: "-d -d"
-    restart: always
