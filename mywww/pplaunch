@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export JAVA_HOME="/usr/java/jdk1.6.0_30/"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+/etc/init.d/httpd start
+
+export LANG=it_IT.UTF-8
+
+ulimit -n 4096
+
+rm -fr /home/ppjr/SERVER-INF/temp/
+rm -fr /home/ppjr/default-ear/default-war/WEB-INF/jsp/
+rm -fr /home/ppjr/default-ear/default-war/WEB-INF/sessions/
+
+#/opt/jrun4/bin/jrun -start ppjr >> /root/stdout.log &
+
+#/opt/jrun4/bin/jrun -start ppjr >/dev/null 2>&1 &
+
+#/opt/jrun4/bin/jrun -start ppjr >> /root/jrun.log 2>&1 &
+
+chown -R nobody.nobody /home/ppjr/
+chmod 777 /home/ppjr/default-ear/default-war/WEB-INF/dav/*
+
+/opt/jrun4/bin/jrun -start ppjr

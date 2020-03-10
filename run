@@ -1,0 +1,61 @@
+#!/bin/bash
+#-------------------------------
+export WHICH_COMMIT=af6a61b7df97
+
+if [ "$1" == "" ]; then
+	echo "devi specificare come e dove vuoi lanciare il servizio"
+	echo esempio
+	echo ppdocker/run production mediavacanze
+	exit 1
+fi
+
+if [ "$1" == "local" ]; then
+	# ATTENZIONE, PER USARE LOCALHOST DEVI VERIFICARE QUALE E'
+	# L'IP CORRENTE!!!
+	myip="$(ipconfig getifaddr en1)"
+	echo my ip: "127.0.0.1"
+	export QUALEDB=dbppLOC
+	export LOGFOLDER=~/pp1logs/
+	export IP_GESTIONALE=127.0.0.1
+	export IP_DBA1=127.0.0.1
+	export IP_DBA2=127.0.0.1
+	#telnet $IP_DBA1 5432
+elif [ "$1" == "testdbremoto" ]; then
+	export QUALEDB=dbppTEST
+	export LOGFOLDER=~/pp1logs/
+	export IP_GESTIONALE=188.166.194.166
+	export IP_DBA1=188.166.194.166
+	export IP_DBA2=188.166.194.166
+elif [ "$1" == "production" ]; then
+	echo ATTENZIONE DB PRODUZIONE 
+	export QUALEDB=dbpp
+	export LOGFOLDER=/home/pp1logs/
+	export IP_GESTIONALE=194.242.232.20
+	export IP_DBA1=194.242.232.21
+	export IP_DBA2=194.242.232.22
+else
+	echo $1
+	echo uno tra: local \| testdbremoto \| production
+	exit 1
+fi
+
+#mkdir -p ${LOGFOLDER}utilities
+mkdir -p ${LOGFOLDER}/utilities/$2-logs
+cd ~/ppdocker/
+wget -nc --user=ridleys@gmail.com --password=KQk-uPF-AL8-MVq https://bitbucket.org/eddyce/pputilities/get/${WHICH_COMMIT}.zip -P utilities/
+echo build phase
+# fermo tutto e cancello tutto
+# build arg non si puo' usare
+#docker-compose build --build-arg WHICH_COMMIT=${WHICH_COMMIT} $2
+docker-compose build utilities
+
+echo run phase
+# PRODUCTION
+TODAY=`date +%Y%m%d-%H%M`
+docker-compose run utilities sh $2.sh ${QUALEDB} 2>&1 | tee ${LOGFOLDER}utilities/$2-logs/$2-${TODAY}.log
+
+# TEST
+#docker-compose run \
+#					-v ~/workspace/pputilities:/eddyce-pputilities-${WHICH_COMMIT} \
+#					-v ~/workspace/pputilities/gestionaleautofiles/:/files_gestionale_auto/	\
+#				utilities sh $2.sh ${QUALEDB} 2>&1

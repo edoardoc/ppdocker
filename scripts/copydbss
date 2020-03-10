@@ -1,0 +1,19 @@
+#!/bin/bash
+echo ATTENZIONE, STO PER SINCRONIZZARE ENTRAMBE I DBs
+read  -r -p "PREMI C PER CONTINUARE..." key
+if [ "$key" = 'C' ]; then
+	if [ ! -f "/root/syncindbss" ]; then
+		echo '\n SYNC TUTTO'
+		docker stop $(docker ps -aq)
+		docker rm $(docker ps -aq)
+		touch /root/syncindbss
+		rsync --exclude 'postgresql.conf' --delete -avzP -e ssh root@194.242.232.21:/data/dba400/data /opt/dba400 
+		rsync --exclude 'postgresql.conf' --delete -avzP -e ssh root@194.242.232.20:/home/data /opt/dbpp
+		rm /root/syncindbss
+	else
+		echo '\nSync già in corso!!'
+	fi
+else
+    # Anything else pressed, do whatever else.
+    echo 'annullato!'
+fi
