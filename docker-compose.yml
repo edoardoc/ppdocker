@@ -27,7 +27,7 @@ services:
     container_name: mydbpp
     environment:
       DB_USER: pepper
-      DB_PASSWORD: ${PGSQL_PASSWORD2}
+      DB_PASSWORD: cia3s4t7e6f3a4n7o78jjkkklkldddEddyock
       DB_NAME: portaportese
       DB_ENCODING: UTF-8
     ports:
@@ -46,7 +46,7 @@ services:
     container_name: mydba400
     environment:
         DB_USER: pepper
-        DB_PASSWORD: ${PGSQL_PASSWORD3}
+        DB_PASSWORD: hotsauce
         DB_NAME: dba400L1
         DB_ENCODING: UTF-8
     ports:
